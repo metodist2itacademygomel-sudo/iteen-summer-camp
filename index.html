@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITeen Camp — Летний IT-лагерь для детей 6–12 лет</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:       #29ABE2;
+    --blue-dark:  #1A8DC4;
+    --blue-deep:  #1565C0;
+    --orange:     #F7941D;
+    --orange-dark:#E07A08;
+    --purple:     #7B3FA0;
+    --yellow:     #FFD700;
+    --green:      #39B54A;
+    --white:      #FFFFFF;
+    --light:      #EEF8FD;
+    --text:       #1A3555;
+    --text-muted: #5A7A9A;
+    --dark:       #0D2340;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Nunito',sans-serif; color:var(--text); background:var(--white); overflow-x:hidden; }
+
+  /* NAV */
+  nav { position:fixed;top:0;left:0;right:0;z-index:100;background:var(--dark);box-shadow:0 2px 20px rgba(0,0,0,0.3); }
+  .nav-top { background:rgba(0,0,0,0.25);padding:5px 24px;display:flex;align-items:center;justify-content:flex-end;gap:22px;max-width:1200px;margin:0 auto;font-size:0.76rem;color:rgba(255,255,255,0.65);font-weight:700; }
+  .nav-top a { color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s; }
+  .nav-top a:hover { color:var(--yellow); }
+  .nav-inner { max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:11px 24px; }
+  .logo { font-family:'Russo One',sans-serif;font-size:1.55rem;color:white;text-decoration:none;display:flex;align-items:center;gap:5px; }
+  .logo .b { color:var(--blue); }
+  .logo .y { color:var(--yellow); }
+  .logo .badge { background:var(--orange);color:white;font-size:0.48rem;font-weight:800;font-family:'Nunito',sans-serif;padding:3px 7px;border-radius:4px;letter-spacing:1px;align-self:flex-start;margin-top:3px; }
+  .nav-links { display:flex;gap:22px;list-style:none; }
+  .nav-links a { color:rgba(255,255,255,0.82);text-decoration:none;font-weight:700;font-size:0.86rem;transition:color 0.2s; }
+  .nav-links a:hover { color:var(--yellow); }
+  .nav-cta { background:var(--orange);color:white;border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.86rem;padding:10px 22px;border-radius:50px;transition:all 0.2s;text-decoration:none;box-shadow:0 4px 14px rgba(247,148,29,0.45); }
+  .nav-cta:hover { background:var(--orange-dark);transform:scale(1.04); }
+
+  /* HERO */
+  .hero { min-height:100vh;background:linear-gradient(160deg,#0D2340 0%,#1565C0 45%,#29ABE2 100%);position:relative;overflow:hidden;display:flex;align-items:center;padding-top:88px; }
+  .hero-dots { position:absolute;inset:0;opacity:0.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect x='8' y='8' width='22' height='22' rx='5' fill='none' stroke='white' stroke-width='2'/%3E%3Crect x='50' y='50' width='22' height='22' rx='5' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='65' cy='15' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='15' cy='65' r='7' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E");background-size:80px 80px; }
+  .hcircle { position:absolute;border-radius:50%;animation:floatY 7s ease-in-out infinite; }
+  .hc1 { width:280px;height:280px;background:rgba(255,255,255,0.04);top:-70px;right:-50px; }
+  .hc2 { width:160px;height:160px;background:rgba(247,148,29,0.1);bottom:22%;right:9%;animation-delay:2s; }
+  .hc3 { width:90px;height:90px;background:rgba(255,215,0,0.13);top:26%;left:4%;animation-delay:4s;border-radius:20px;transform:rotate(20deg); }
+  @keyframes floatY { 0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);} }
+  .hero-wave { position:absolute;bottom:-2px;left:0;right:0;z-index:1; }
+  .hero-wave svg { display:block;width:100%; }
+
+  .hero-inner { max-width:1200px;margin:0 auto;padding:60px 24px 120px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2; }
+  .hero-tag { display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);color:var(--yellow);font-weight:800;font-size:0.78rem;padding:6px 16px;border-radius:50px;margin-bottom:18px;letter-spacing:0.5px; }
+  .hero-tag .dot { width:8px;height:8px;background:var(--yellow);border-radius:50%;animation:pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.5);opacity:0.5;} }
+  .hero h1 { font-family:'Russo One',sans-serif;font-size:3.3rem;line-height:1.1;color:white;margin-bottom:20px;text-shadow:0 2px 20px rgba(0,0,0,0.2); }
+  .hero h1 .yl { color:var(--yellow); }
+  .hero h1 .org { color:var(--orange); }
+  .hero-desc { color:rgba(255,255,255,0.82);font-size:1.03rem;line-height:1.75;margin-bottom:30px; }
+  .hero-btns { display:flex;gap:14px;flex-wrap:wrap; }
+  .btn-primary { background:var(--orange);color:white;border:none;cursor:pointer;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;padding:15px 32px;border-radius:50px;text-decoration:none;transition:all 0.25s;display:inline-block;box-shadow:0 6px 20px rgba(247,148,29,0.5); }
+  .btn-primary:hover { background:var(--orange-dark);transform:translateY(-3px);box-shadow:0 10px 28px rgba(247,148,29,0.55); }
+  .btn-outline { background:transparent;color:white;border:2px solid rgba(255,255,255,0.45);font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;padding:13px 28px;border-radius:50px;cursor:pointer;transition:all 0.25s;text-decoration:none;display:inline-block; }
+  .btn-outline:hover { border-color:var(--yellow);color:var(--yellow); }
+  .hero-stats { display:flex;gap:24px;margin-top:38px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.18); }
+  .hero-stat .num { font-family:'Russo One',sans-serif;font-size:1.9rem;color:var(--yellow); }
+  .hero-stat .label { color:rgba(255,255,255,0.58);font-size:0.76rem;font-weight:700;line-height:1.3; }
+
+  /* hero right */
+  .hero-right { display:flex;flex-direction:column;align-items:center;gap:14px; }
+  .mascot-stage { position:relative;width:100%;display:flex;justify-content:center;align-items:flex-end; }
+  .mascot-main { width:230px;height:230px;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4));animation:floatY 5s ease-in-out infinite; }
+  .mascot-sm { width:120px;height:120px;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+  .mascot-sm.left { position:absolute;left:-5px;bottom:15px;animation:floatY 6s ease-in-out infinite 1s; }
+  .mascot-sm.right { position:absolute;right:-5px;bottom:10px;animation:floatY 6s ease-in-out infinite 2.5s; }
+  .hero-info-card { background:rgba(255,255,255,0.14);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.24);border-radius:20px;padding:18px 26px;color:white;text-align:center;width:100%;max-width:310px; }
+  .hero-info-card .big { font-family:'Russo One',sans-serif;font-size:1rem;color:var(--yellow); }
+  .hero-info-card p { font-size:0.8rem;opacity:0.75;margin-top:4px; }
+
+  /* COMMON */
+  section { padding:86px 0; }
+  .container { max-width:1200px;margin:0 auto;padding:0 24px; }
+  .section-tag { display:inline-block;background:rgba(41,171,226,0.11);color:var(--blue-dark);font-weight:800;font-size:0.7rem;padding:4px 14px;border-radius:50px;margin-bottom:11px;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(41,171,226,0.22); }
+  .section-title { font-family:'Russo One',sans-serif;font-size:2.35rem;line-height:1.1;margin-bottom:11px;color:var(--text); }
+  .section-title .b { color:var(--blue); }
+  .section-title .o { color:var(--orange); }
+  .section-title .p { color:var(--purple); }
+  .section-title .y { color:var(--yellow); }
+  .section-sub { color:var(--text-muted);font-size:0.98rem;max-width:540px;line-height:1.7; }
+  .section-head { margin-bottom:48px; }
+  .text-center { text-align:center; }
+  .center { margin:0 auto; }
+
+  /* FORMATS */
+  .formats { background:var(--light);position:relative;overflow:hidden; }
+  .formats-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:22px; }
+  .format-card { background:white;border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07);transition:transform 0.3s,box-shadow 0.3s;position:relative; }
+  .format-card:hover { transform:translateY(-7px);box-shadow:0 20px 50px rgba(0,0,0,0.12); }
+  .format-card.featured { grid-column:span 2;display:grid;grid-template-columns:1fr 1fr; }
+  .fcard-img { min-height:220px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden; }
+  .format-card.featured .fcard-img { min-height:100%; }
+  .fmt-blue   { background:linear-gradient(135deg,#1565C0,#29ABE2); }
+  .fmt-purple { background:linear-gradient(135deg,#7B3FA0,#4A1A70); }
+  .fmt-green  { background:linear-gradient(135deg,#39B54A,#0D8A1F); }
+  .fcard-img .mascot-img { width:160px;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(0,0,0,0.3)); }
+  .format-card.featured .fcard-img .mascot-img { width:210px; }
+  .fcard-body { padding:26px 28px 30px; }
+  .format-badge { display:inline-block;background:rgba(247,148,29,0.12);color:var(--orange);font-weight:800;font-size:0.68rem;padding:4px 12px;border-radius:50px;margin-bottom:11px;text-transform:uppercase;letter-spacing:0.8px; }
+  .format-card h3 { font-family:'Russo One',sans-serif;font-size:1.3rem;margin-bottom:10px;color:var(--text);line-height:1.25; }
+  .format-card p { color:var(--text-muted);line-height:1.65;font-size:0.92rem; }
+  .format-tags { display:flex;gap:8px;flex-wrap:wrap;margin-top:14px; }
+  .ftag { background:var(--light);color:var(--text);font-weight:700;font-size:0.74rem;padding:4px 11px;border-radius:50px; }
+  .card-mascot { position:absolute;bottom:-8px;right:-8px;width:80px;opacity:0.15;pointer-events:none; }
+
+  /* WHY */
+  .why { background:white; }
+  .why-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .why-card { border-radius:22px;padding:28px 24px;border:2px solid #E4F5FD;transition:all 0.3s;position:relative;overflow:hidden; }
+  .why-card:hover { border-color:var(--blue);box-shadow:0 10px 36px rgba(41,171,226,0.13);transform:translateY(-5px); }
+  .why-icon { width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:14px; }
+  .wi-blue   { background:rgba(41,171,226,0.13); }
+  .wi-orange { background:rgba(247,148,29,0.12); }
+  .wi-purple { background:rgba(123,63,160,0.12); }
+  .wi-green  { background:rgba(57,181,74,0.12); }
+  .wi-yellow { background:rgba(255,215,0,0.15); }
+  .wi-teal   { background:rgba(0,188,212,0.12); }
+  .why-card h4 { font-weight:800;font-size:1.03rem;margin-bottom:8px; }
+  .why-card p { color:var(--text-muted);font-size:0.87rem;line-height:1.65; }
+  .why-mascot { position:absolute;bottom:-14px;right:-8px;width:65px;opacity:0.13;pointer-events:none; }
+
+  /* PROGRAM */
+  .program { background:linear-gradient(160deg,#0D2340 0%,#1565C0 60%,#29ABE2 100%);position:relative;overflow:hidden; }
+  .program .section-tag { background:rgba(255,255,255,0.12);color:var(--yellow);border-color:rgba(255,255,255,0.18); }
+  .program .section-title { color:white; }
+  .program .section-sub { color:rgba(255,255,255,0.62); }
+  .days-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:13px; }
+  .day-card { background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.11);border-radius:18px;padding:20px 15px;transition:all 0.3s;cursor:pointer; }
+  .day-card:hover { background:rgba(247,148,29,0.17);border-color:rgba(247,148,29,0.5);transform:translateY(-5px); }
+  .day-num { font-family:'Russo One',sans-serif;font-size:0.68rem;color:var(--yellow);letter-spacing:1px;text-transform:uppercase;margin-bottom:9px; }
+  .day-emoji { font-size:1.8rem;margin-bottom:8px;display:block; }
+  .day-card h4 { font-weight:800;font-size:0.9rem;margin-bottom:8px;color:white; }
+  .day-card ul { list-style:none; }
+  .day-card ul li { color:rgba(255,255,255,0.52);font-size:0.77rem;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.06);font-weight:600; }
+  .day-card ul li:last-child { border-bottom:none; }
+  .day-card ul li::before { content:"→ ";color:var(--yellow); }
+
+  /* SCHEDULE */
+  .schedule { background:var(--light); }
+  .schedule-wrap { display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:start; }
+  .time-row { display:flex;align-items:flex-start;gap:13px;padding:13px 0;border-bottom:1px solid #D6EEF9; }
+  .time-row:last-child { border-bottom:none; }
+  .time-badge { background:var(--blue);color:white;font-weight:800;font-size:0.74rem;padding:5px 11px;border-radius:8px;white-space:nowrap;min-width:78px;text-align:center; }
+  .time-content strong { font-weight:800;font-size:0.9rem; }
+  .time-content span { display:block;color:var(--text-muted);font-size:0.8rem;margin-top:2px; }
+  .schedule-info { background:var(--dark);border-radius:24px;padding:32px;color:white; }
+  .schedule-info h3 { font-family:'Russo One',sans-serif;font-size:1.35rem;margin-bottom:18px;color:white; }
+  .info-item { display:flex;gap:13px;align-items:flex-start;margin-bottom:14px; }
+  .info-icon { width:38px;height:38px;border-radius:10px;background:rgba(41,171,226,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0; }
+  .info-item strong { font-weight:800;font-size:0.86rem;display:block; }
+  .info-item span { color:rgba(255,255,255,0.58);font-size:0.82rem; }
+
+  /* AGES */
+  .ages { background:white; }
+  .ages-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .age-card { background:var(--light);border-radius:22px;padding:28px 22px;text-align:center;border:2px solid transparent;transition:all 0.3s;position:relative;overflow:hidden; }
+  .age-card:hover { border-color:var(--blue);transform:translateY(-5px);box-shadow:0 12px 36px rgba(41,171,226,0.14); }
+  .age-range { font-family:'Russo One',sans-serif;font-size:2.5rem;color:var(--blue);line-height:1; }
+  .age-label { font-weight:800;color:var(--text-muted);font-size:0.8rem;margin-bottom:12px; }
+  .age-mascot { width:85px;margin:0 auto 11px;display:block;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.14)); }
+  .age-card h4 { font-weight:800;margin-bottom:7px; }
+  .age-card p { color:var(--text-muted);font-size:0.85rem;line-height:1.6; }
+
+  /* GALLERY */
+  .gallery { background:linear-gradient(160deg,#0D2340 0%,#1A5090 100%);position:relative;overflow:hidden; }
+  .gallery::before { content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect x='5' y='5' width='18' height='18' rx='4' fill='none' stroke='white' stroke-width='1.5' opacity='0.05'/%3E%3Crect x='37' y='37' width='18' height='18' rx='4' fill='none' stroke='white' stroke-width='1.5' opacity='0.05'/%3E%3C/svg%3E");background-size:60px 60px; }
+  .gallery .section-tag { background:rgba(255,255,255,0.11);color:var(--yellow);border-color:rgba(255,255,255,0.18); }
+  .gallery .section-title { color:white; }
+  .gallery .section-sub { color:rgba(255,255,255,0.62); }
+
+  .gallery-grid { display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:13px; }
+  .gitem { border-radius:18px;overflow:hidden;position:relative;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s; }
+  .gitem:hover { transform:scale(1.03);box-shadow:0 14px 40px rgba(0,0,0,0.4);z-index:2; }
+  .gitem.big  { grid-column:span 2;grid-row:span 2; }
+  .gitem.tall { grid-row:span 2; }
+  .gitem.wide { grid-column:span 2; }
+
+  .ph { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px; }
+  .ph .ph-icon { font-size:2.2rem; }
+  .ph .ph-lbl { font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.65);text-align:center;line-height:1.4; }
+  .ph .ph-mascot { width:70px;object-fit:contain;opacity:0.55; }
+  .gitem.big .ph .ph-mascot { width:110px; }
+
+  .gitem-overlay { position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.55) 0%,transparent 55%);display:flex;align-items:flex-end;padding:13px;opacity:0;transition:opacity 0.3s; }
+  .gitem:hover .gitem-overlay { opacity:1; }
+  .gitem-label { color:white;font-weight:700;font-size:0.8rem; }
+
+  .gallery-mascot-deco { position:absolute;bottom:16px;right:24px;width:130px;opacity:0.22;animation:floatY 6s ease-in-out infinite;pointer-events:none; }
+
+  /* REVIEWS */
+  .reviews { background:var(--light); }
+  .reviews-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .review-card { background:white;border-radius:20px;padding:24px;border:2px solid #DFF0F9;transition:all 0.3s; }
+  .review-card:hover { box-shadow:0 8px 30px rgba(41,171,226,0.12);border-color:var(--blue); }
+  .stars { color:var(--yellow);font-size:1rem;margin-bottom:11px; }
+  .review-text { color:var(--text);font-size:0.89rem;line-height:1.7;margin-bottom:15px;font-style:italic; }
+  .reviewer { display:flex;align-items:center;gap:11px; }
+  .rev-avatar { width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;color:white; }
+
+  /* FAQ */
+  .faq { background:white; }
+  .faq-list { max-width:750px;margin:0 auto; }
+  .faq-item { background:var(--light);border-radius:16px;margin-bottom:10px;overflow:hidden;border:2px solid #D8EEF8; }
+  .faq-q { padding:17px 22px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:0.95rem; }
+  .faq-q::after { content:'+';font-size:1.35rem;color:var(--blue);font-weight:900;transition:transform 0.3s; }
+  .faq-item.open .faq-q::after { transform:rotate(45deg); }
+  .faq-item.open .faq-q { color:var(--blue-dark); }
+  .faq-a { max-height:0;overflow:hidden;padding:0 22px;color:var(--text-muted);font-size:0.89rem;line-height:1.7;transition:max-height 0.35s ease,padding 0.2s; }
+  .faq-item.open .faq-a { max-height:200px;padding:0 22px 17px; }
+
+  /* CTA */
+  .cta-section { background:linear-gradient(135deg,#1565C0 0%,#29ABE2 100%);position:relative;overflow:hidden; }
+  .cta-section::before { content:'';position:absolute;top:-90px;left:-90px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,0.06); }
+  .cta-section::after { content:'';position:absolute;bottom:-70px;right:-70px;width:280px;height:280px;border-radius:50%;background:rgba(0,0,0,0.08); }
+  .cta-inner { position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center; }
+  .cta-text h2 { font-family:'Russo One',sans-serif;font-size:2.4rem;color:white;line-height:1.1;margin-bottom:13px; }
+  .cta-text h2 .yl { color:var(--yellow); }
+  .cta-text p { color:rgba(255,255,255,0.76);font-size:0.96rem;line-height:1.7;margin-bottom:22px; }
+  .cta-perks { list-style:none; }
+  .cta-perks li { color:rgba(255,255,255,0.9);font-size:0.9rem;padding:6px 0;font-weight:700; }
+  .cta-perks li::before { content:"✓ ";color:var(--yellow);font-weight:900; }
+  .cta-mascots-row { display:flex;gap:0;align-items:flex-end;margin-top:26px; }
+  .cta-mascots-row img { width:80px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(0,0,0,0.3)); }
+  .cta-mascots-row img.big { width:100px; }
+
+  .form-card { background:white;border-radius:26px;padding:36px 34px;box-shadow:0 30px 60px rgba(0,0,0,0.2); }
+  .form-card h3 { font-family:'Russo One',sans-serif;font-size:1.45rem;margin-bottom:4px; }
+  .form-card > p { color:var(--text-muted);font-size:0.84rem;margin-bottom:20px; }
+  .form-group { margin-bottom:13px; }
+  .form-group label { display:block;font-weight:800;font-size:0.82rem;margin-bottom:5px;color:var(--text); }
+  .form-group input, .form-group select { width:100%;padding:12px 14px;border:2px solid #D8EEF8;border-radius:12px;font-family:'Nunito',sans-serif;font-size:0.92rem;outline:none;transition:border-color 0.2s;color:var(--text);background:white; }
+  .form-group input:focus, .form-group select:focus { border-color:var(--blue); }
+  .form-submit { width:100%;padding:15px;background:var(--orange);color:white;border:none;cursor:pointer;font-family:'Russo One',sans-serif;font-size:1.02rem;border-radius:14px;margin-top:6px;transition:all 0.25s;box-shadow:0 8px 20px rgba(247,148,29,0.35); }
+  .form-submit:hover { background:var(--orange-dark);transform:translateY(-2px); }
+  .form-note { text-align:center;color:var(--text-muted);font-size:0.7rem;margin-top:9px; }
+  .form-note a { color:var(--blue); }
+  .success-msg { display:none;text-align:center;padding:20px; }
+  .success-msg .checkmark { font-size:3rem;margin-bottom:9px; }
+  .success-msg h4 { font-family:'Russo One',sans-serif;font-size:1.3rem;color:var(--blue);margin-bottom:7px; }
+  .success-msg p { color:var(--text-muted);font-size:0.87rem; }
+
+  /* FOOTER */
+  footer { background:var(--dark);color:rgba(255,255,255,0.58);padding:46px 0 26px; }
+  .footer-inner { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:34px; }
+  .footer-logo { font-family:'Russo One',sans-serif;font-size:1.35rem;color:white;text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-bottom:11px; }
+  .footer-logo .b { color:var(--blue); }
+  .footer-logo .y { color:var(--yellow); }
+  .footer-col p { font-size:0.84rem;line-height:1.6; }
+  .footer-col h5 { color:white;font-weight:800;margin-bottom:11px;font-size:0.86rem; }
+  .footer-col a { display:block;color:rgba(255,255,255,0.53);text-decoration:none;font-size:0.82rem;margin-bottom:7px;transition:color 0.2s;font-weight:600; }
+  .footer-col a:hover { color:var(--yellow); }
+  .footer-contact { display:flex;align-items:center;gap:7px;margin-bottom:7px;font-size:0.82rem;font-weight:600; }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:0.76rem; }
+  .footer-bottom a { color:var(--blue);text-decoration:none; }
+
+  /* ANIMATIONS */
+  .fade-in { opacity:0;transform:translateY(26px);transition:all 0.55s ease; }
+  .fade-in.visible { opacity:1;transform:translateY(0); }
+
+  /* RESPONSIVE */
+  @media(max-width:1024px) {
+    .hero h1 { font-size:2.6rem; }
+    .days-grid { grid-template-columns:repeat(3,1fr); }
+    .footer-inner { grid-template-columns:1fr 1fr; }
+    .gallery-grid { grid-template-columns:repeat(2,1fr); }
+    .gitem.big { grid-column:span 2; }
+  }
+  @media(max-width:768px) {
+    .hero-inner { grid-template-columns:1fr; }
+    .hero-right { display:none; }
+    .formats-grid { grid-template-columns:1fr; }
+    .format-card.featured { grid-column:span 1;display:block; }
+    .why-grid { grid-template-columns:1fr 1fr; }
+    .days-grid { grid-template-columns:1fr 1fr; }
+    .schedule-wrap { grid-template-columns:1fr; }
+    .ages-grid { grid-template-columns:1fr 1fr; }
+    .reviews-grid { grid-template-columns:1fr; }
+    .cta-inner { grid-template-columns:1fr; }
+    .footer-inner { grid-template-columns:1fr 1fr; }
+    .nav-links { display:none; }
+    .section-title { font-size:1.75rem; }
+    .gallery-grid { grid-template-columns:1fr 1fr; }
+    .gitem.tall { grid-row:span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-top">
+    <span>📍 Минск</span>
+    <a href="mailto:info@iteen.by">✉ info@iteen.by</a>
+    <a href="tel:+375291933030">📞 +375 (29) 193-30-30</a>
+  </div>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="b">I</span>Teen <span class="y">Camp</span>
+      <span class="badge">ЛЕТО 2025</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#formats">Программы</a></li>
+      <li><a href="#why">Почему мы</a></li>
+      <li><a href="#schedule">Расписание</a></li>
+      <li><a href="#gallery">Фото</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Записаться →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"></div>
+  <div class="hcircle hc1"></div>
+  <div class="hcircle hc2"></div>
+  <div class="hcircle hc3"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="dot"></span>Летний лагерь · Июнь — Август 2025</div>
+      <h1>Летние<br><span class="yl">IT-приключения</span><br>с <span class="org">ITeen Camp!</span></h1>
+      <p class="hero-desc">Две незабываемые недели, где программирование, робототехника и Minecraft становятся настоящим приключением. Для детей <strong style="color:white">6–12 лет</strong> в Минске.</p>
+      <div class="hero-btns">
+        <a href="#cta" class="btn-primary">🚀 Записаться сейчас</a>
+        <a href="#formats" class="btn-outline">Узнать больше</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">10+</div><div class="label">лет на рынке<br>образования</div></div>
+        <div class="hero-stat"><div class="num">500+</div><div class="label">детей<br>каждое лето</div></div>
+        <div class="hero-stat"><div class="num">4</div><div class="label">IT-направления<br>в одном лагере</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="mascot-stage">
+        <img src="кнопа_с_лего__1_.png" class="mascot-main" alt="Маскот ITeen">
+        <img src="3.png" class="mascot-sm left" alt="">
+        <img src="5.png" class="mascot-sm right" alt="">
+      </div>
+      <div class="hero-info-card">
+        <div class="big">📅 Смены с 2 июня по 25 августа</div>
+        <p>ДРОЦ Ждановичи (загородный) · Раковская 25/1 (городской)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C360,80 1080,0 1440,50 L1440,80 L0,80 Z" fill="white"/>
+    </svg>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section class="formats" id="formats">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="section-tag">Программы лагеря</span>
+      <h2 class="section-title">Выбери своё <span class="b">приключение</span></h2>
+      <p class="section-sub">Два формата — загородный и городской. Каждый найдёт что-то по душе!</p>
+    </div>
+    <div class="formats-grid">
+      <div class="format-card featured fade-in">
+        <div class="fcard-img fmt-blue">
+          <img src="кнопа_с_лего__1_.png" class="mascot-img" alt="">
+        </div>
+        <div class="fcard-body">
+          <span class="format-badge">⭐ Хит сезона</span>
+          <h3>Minecraft-экспедиция «В поисках дневника Стива»</h3>
+          <p>Загородный лагерь в ДРОЦ «Ждановичи». Дети живут на природе, играют в Minecraft, участвуют в квестах и командных испытаниях. Каждый день — новая глава захватывающей истории!</p>
+          <div class="format-tags">
+            <span class="ftag">📍 ДРОЦ Ждановичи</span>
+            <span class="ftag">👦 2–6 класс</span>
+            <span class="ftag">⏱ 14 дней</span>
+            <span class="ftag">💻 Minecraft</span>
+            <span class="ftag">🌿 На природе</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="format-card fade-in">
+        <div class="fcard-img fmt-purple">
+          <img src="22.png" class="mascot-img" alt="">
+        </div>
+        <div class="fcard-body">
+          <span class="format-badge" style="background:rgba(123,63,160,0.12);color:var(--purple);">Городской</span>
+          <h3>Квест «Калейдоскоп IT-приключений»</h3>
+          <p>Программирование, дизайн, робототехника и вылазки по Минску — всё в одном! Базируемся на ул. Раковская 25/1 в центре города.</p>
+          <div class="format-tags">
+            <span class="ftag">📍 Раковская 25/1</span>
+            <span class="ftag">👦 2–6 класс</span>
+            <span class="ftag">⏱ 5 дней</span>
+          </div>
+        </div>
+        <img src="13.png" class="card-mascot" alt="">
+      </div>
+
+      <div class="format-card fade-in">
+        <div class="fcard-img fmt-green">
+          <img src="191435368.png" class="mascot-img" alt="">
+        </div>
+        <div class="fcard-body">
+          <span class="format-badge" style="background:rgba(57,181,74,0.12);color:var(--green);">Технологии</span>
+          <h3>Смена робототехники и изобретений</h3>
+          <p>LEGO SPIKE Prime, дроны, инженерные задачи и командные соревнования. Дети строят, программируют и запускают своих роботов!</p>
+          <div class="format-tags">
+            <span class="ftag">🤖 LEGO SPIKE</span>
+            <span class="ftag">🚁 Дроны</span>
+          </div>
+        </div>
+        <img src="191435354.png" class="card-mascot" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-head fade-in text-center">
+      <span class="section-tag">Наши преимущества</span>
+      <h2 class="section-title">Почему родители <span class="o">доверяют</span> нам</h2>
+      <p class="section-sub center">ITeen Academy — это не просто лагерь. Это 10 лет опыта и тысячи счастливых детей.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon wi-orange">🏆</div>
+        <h4>10 лет опыта</h4>
+        <p>Более 10 лет в сфере детского IT-образования. Наши выпускники — победители республиканских и международных конкурсов.</p>
+        <img src="19.png" class="why-mascot" alt="">
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon wi-blue">👨‍🏫</div>
+        <h4>Профессиональные педагоги</h4>
+        <p>Опытные преподаватели работают по уникальным авторским методикам с учётом возраста каждого ребёнка.</p>
+        <img src="191435369.png" class="why-mascot" alt="">
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon wi-purple">💻</div>
+        <h4>Современное оборудование</h4>
+        <p>Только лучшие конструкторы, компьютеры и техника. Дети работают с инструментами настоящих профессионалов.</p>
+        <img src="191435370.png" class="why-mascot" alt="">
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon wi-yellow">🎯</div>
+        <h4>Авторские программы</h4>
+        <p>Никакого скучного времяпрепровождения! Каждая смена — уникальный игровой сюжет, где обучение = приключение.</p>
+        <img src="21.png" class="why-mascot" alt="">
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon wi-green">🛡️</div>
+        <h4>Безопасность детей</h4>
+        <p>Постоянный присмотр вожатых, медицинское сопровождение и ежедневная связь с родителями.</p>
+        <img src="15.png" class="why-mascot" alt="">
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon wi-teal">🌟</div>
+        <h4>Развитие soft skills</h4>
+        <p>Командная работа, лидерство, творческое мышление — дети не только программируют, но и растут как личности.</p>
+        <img src="23.png" class="why-mascot" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="section-tag">Типичная неделя</span>
+      <h2 class="section-title">Что нас <span class="y">ждёт</span> каждую неделю</h2>
+      <p class="section-sub">Каждый день лагеря — новая страница приключения!</p>
+    </div>
+    <div class="days-grid fade-in">
+      <div class="day-card"><div class="day-num">День 1 · ПН</div><span class="day-emoji">🚀</span><h4>Старт экспедиции</h4><ul><li>Знакомство с командой</li><li>Вводный квест</li><li>Первые IT-задания</li><li>Вечерний костёр</li></ul></div>
+      <div class="day-card"><div class="day-num">День 2 · ВТ</div><span class="day-emoji">💻</span><h4>IT-лаборатория</h4><ul><li>Программирование</li><li>Minecraft-мастерская</li><li>Командный проект</li><li>Спортивные игры</li></ul></div>
+      <div class="day-card"><div class="day-num">День 3 · СР</div><span class="day-emoji">🤖</span><h4>День робота</h4><ul><li>Сборка LEGO SPIKE</li><li>Программирование</li><li>Соревнования</li><li>Творческий час</li></ul></div>
+      <div class="day-card"><div class="day-num">День 4 · ЧТ</div><span class="day-emoji">🎨</span><h4>Дизайн и медиа</h4><ul><li>Цифровое рисование</li><li>Анимация</li><li>Фото/видео контент</li><li>Вечерний фестиваль</li></ul></div>
+      <div class="day-card"><div class="day-num">День 5 · ПТ</div><span class="day-emoji">🏆</span><h4>День побед</h4><ul><li>Презентация проектов</li><li>Финальный турнир</li><li>Вручение наград</li><li>Праздник команды</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule" id="schedule">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="section-tag">Распорядок</span>
+      <h2 class="section-title">Расписание <span class="b">дня</span></h2>
+      <p class="section-sub">Насыщенный день, где каждая минута приносит новые открытия.</p>
+    </div>
+    <div class="schedule-wrap fade-in">
+      <div class="time-table">
+        <div class="time-row"><span class="time-badge">08:30</span><div class="time-content"><strong>Сбор и завтрак</strong><span>Приветствие, зарядка, утренние игры</span></div></div>
+        <div class="time-row"><span class="time-badge">09:30</span><div class="time-content"><strong>🖥 IT-занятие №1</strong><span>Программирование, робототехника или дизайн</span></div></div>
+        <div class="time-row"><span class="time-badge">11:00</span><div class="time-content"><strong>Активная пауза</strong><span>Подвижные игры на свежем воздухе</span></div></div>
+        <div class="time-row"><span class="time-badge">11:30</span><div class="time-content"><strong>🎮 IT-занятие №2</strong><span>Командный проект или квест по сюжету</span></div></div>
+        <div class="time-row"><span class="time-badge">13:00</span><div class="time-content"><strong>Обед и отдых</strong><span>Свободное время, настольные игры</span></div></div>
+        <div class="time-row"><span class="time-badge">14:00</span><div class="time-content"><strong>🏆 Тематическое мероприятие</strong><span>Турниры, мастер-классы, экскурсии</span></div></div>
+        <div class="time-row"><span class="time-badge">16:00</span><div class="time-content"><strong>Полдник и творчество</strong><span>Арт-студия, музыка, кино</span></div></div>
+        <div class="time-row"><span class="time-badge">17:30</span><div class="time-content"><strong>🎉 Вечернее шоу</strong><span>Презентации, дискотека, конкурсы</span></div></div>
+        <div class="time-row"><span class="time-badge">18:30</span><div class="time-content"><strong>Разъезд домой</strong><span>До свидания до завтра!</span></div></div>
+      </div>
+      <div class="schedule-info">
+        <h3>📋 Важная информация</h3>
+        <div class="info-item"><div class="info-icon">📅</div><div><strong>Смены</strong><span>2 июня — 25 августа 2025 г.<br>Смены по 2 недели (10 рабочих дней)</span></div></div>
+        <div class="info-item"><div class="info-icon">👶</div><div><strong>Возраст</strong><span>6–12 лет (1–6 классы)<br>Группы формируются по возрасту</span></div></div>
+        <div class="info-item"><div class="info-icon">👥</div><div><strong>Размер группы</strong><span>До 12 детей в группе<br>Индивидуальный подход к каждому</span></div></div>
+        <div class="info-item"><div class="info-icon">📍</div><div><strong>Адрес</strong><span>г. Минск, ул. Раковская 25/1<br>ДРОЦ «Ждановичи» (загородный)</span></div></div>
+        <div class="info-item"><div class="info-icon">📞</div><div><strong>Телефон</strong><span>+375 (29) 193-30-30<br>Пн–Пт: 08:30–19:00</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGES -->
+<section class="ages">
+  <div class="container">
+    <div class="section-head fade-in text-center">
+      <span class="section-tag">Для кого лагерь</span>
+      <h2 class="section-title">Найди свою <span class="b">группу</span></h2>
+      <p class="section-sub center">Программа адаптирована под каждый возраст — скучно не будет никому!</p>
+    </div>
+    <div class="ages-grid fade-in">
+      <div class="age-card">
+        <img src="3.png" class="age-mascot" alt="">
+        <div class="age-range">6–7</div>
+        <div class="age-label">лет · 1 класс</div>
+        <h4>Первые шаги</h4>
+        <p>Scratch, рисование на компьютере, простые роботы из LEGO. Всё через игру и сказку!</p>
+      </div>
+      <div class="age-card">
+        <img src="кнопа_с_лего__1_.png" class="age-mascot" alt="">
+        <div class="age-range">8–9</div>
+        <div class="age-label">лет · 2–3 класс</div>
+        <h4>Юный программист</h4>
+        <p>Minecraft-моды, Scratch-игры, WeDo роботы и первые настоящие проекты.</p>
+      </div>
+      <div class="age-card">
+        <img src="191435368.png" class="age-mascot" alt="">
+        <div class="age-range">10–12</div>
+        <div class="age-label">лет · 4–6 класс</div>
+        <h4>Pro-разработчик</h4>
+        <p>Python, Roblox Studio, LEGO SPIKE Prime, соревновательная робототехника и Game Dev.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-head fade-in">
+      <span class="section-tag">Воспоминания</span>
+      <h2 class="section-title">Как это было <span class="y">в прошлом году</span> 📸</h2>
+      <p class="section-sub">Загляни в атмосферу ITeen Camp — смех, дружба, роботы и море приключений!</p>
+    </div>
+
+    <div class="gallery-grid fade-in">
+      <!-- BIG left -->
+      <div class="gitem big">
+        <div class="ph" style="background:linear-gradient(135deg,rgba(21,101,192,0.75),rgba(41,171,226,0.5));">
+          <img src="кнопа_с_лего__1_.png" class="ph-mascot" alt="">
+          <div class="ph-lbl">Командные соревнования<br>по робототехнике</div>
+        </div>
+        <div class="gitem-overlay"><span class="gitem-label">🏆 Финальный турнир по робототехнике</span></div>
+      </div>
+      <!-- top center -->
+      <div class="gitem">
+        <div class="ph" style="background:linear-gradient(135deg,rgba(247,148,29,0.6),rgba(231,100,8,0.45));">
+          <img src="3.png" class="ph-mascot" alt="">
+          <div class="ph-lbl">Minecraft-сессия</div>
+        </div>
+        <div class="gitem-overlay"><span class="gitem-label">🎮 Minecraft-лаборатория</span></div>
+      </div>
+      <!-- tall right -->
+      <div class="gitem tall">
+        <div class="ph" style="background:linear-gradient(135deg,rgba(123,63,160,0.65),rgba(57,181,74,0.4));">
+          <img src="191435368.png" class="ph-mascot" alt="">
+          <div class="ph-lbl">Сборка LEGO SPIKE Prime</div>
+        </div>
+        <div class="gitem-overlay"><span class="gitem-label">🤖 LEGO SPIKE Prime</span></div>
+      </div>
+      <!-- bottom center -->
+      <div class="gitem">
+        <div class="ph" style="background:linear-gradient(135deg,rgba(57,181,74,0.6),rgba(13,35,64,0.5));">
+          <img src="22.png" class="ph-mascot" alt="">
+          <div class="ph-lbl">Вечернее шоу</div>
+        </div>
+        <div class="gitem-overlay"><span class="gitem-label">🎉 Вечернее шоу</span></div>
+      </div>
+      <!-- bottom row -->
+      <div class="gitem">
+        <div class="ph" style="background:linear-gradient(135deg,rgba(255,215,0,0.3),rgba(247,148,29,0.5));">
+          <img src="19.png" class="ph-mascot" alt="">
+          <div class="ph-lbl">Вручение наград</div>
+        </div>
+        <div class="gitem-overlay"><span class="gitem-label">🥇 Церемония награждения</span></div>
+      </div>
+      <div class="gitem">
+        <div class="ph" style="background:linear-gradient(135deg,rgba(0,150,180,0.6),rgba(13,35,64,0.55));">
+          <img src="21.png" class="ph-mascot" alt="">
+          <div class="ph-lbl">Полёты на дронах</div>
+        </div>
+        <div class="gitem-overlay"><span class="gitem-label">🚁 Полёты на дронах</span></div>
+      </div>
+      <div class="gitem">
+        <div class="ph" style="background:linear-gradient(135deg,rgba(123,63,160,0.6),rgba(26,62,255,0.4));">
+          <img src="23.png" class="ph-mascot" alt="">
+          <div class="ph-lbl">Цифровой дизайн</div>
+        </div>
+        <div class="gitem-overlay"><span class="gitem-label">🎨 Урок цифрового дизайна</span></div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:28px;color:rgba(255,255,255,0.45);font-size:0.84rem;font-weight:700;position:relative;z-index:1;">
+      📷 Больше фото и видео — в нашем Instagram и ВКонтакте
+    </p>
+  </div>
+  <img src="191435354.png" class="gallery-mascot-deco" alt="">
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head fade-in text-center">
+      <span class="section-tag">Отзывы</span>
+      <h2 class="section-title">Что говорят <span class="o">родители</span></h2>
+    </div>
+    <div class="reviews-grid fade-in">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">«Сын ждал лагерь весь учебный год! Вернулся в восторге — уже придумывает свою игру в Minecraft. Педагоги внимательные, атмосфера дружелюбная. Записались на следующую смену!»</p>
+        <div class="reviewer"><div class="rev-avatar" style="background:var(--orange);">М</div><div><strong>Марина К.</strong><span style="color:var(--text-muted);font-size:0.75rem;">мама Артёма, 9 лет</span></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">«Дочка раньше не интересовалась технологиями — после лагеря попросила купить конструктор LEGO Spike. ITeen умеет влюблять детей в IT. Большое спасибо команде!»</p>
+        <div class="reviewer"><div class="rev-avatar" style="background:var(--blue);">А</div><div><strong>Андрей П.</strong><span style="color:var(--text-muted);font-size:0.75rem;">папа Анастасии, 8 лет</span></div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">«Третий год подряд отправляем ребёнка в ITeen Camp! Каждый раз новая программа, новые друзья и знания. Это лучший летний лагерь в Минске — проверено!»</p>
+        <div class="reviewer"><div class="rev-avatar" style="background:var(--purple);">Е</div><div><strong>Елена В.</strong><span style="color:var(--text-muted);font-size:0.75rem;">мама Ильи, 11 лет</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head fade-in text-center">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title">Частые <span class="b">вопросы</span></h2>
+    </div>
+    <div class="faq-list fade-in">
+      <div class="faq-item"><div class="faq-q">Нужен ли предварительный опыт программирования?</div><div class="faq-a">Нет! Лагерь подходит и для полных новичков, и для тех, кто уже имеет опыт. Группы формируются по уровню — каждый получит задания подходящей сложности.</div></div>
+      <div class="faq-item"><div class="faq-q">Что нужно брать с собой ребёнку?</div><div class="faq-a">Сменную обувь, удобную одежду, канцелярию и хорошее настроение! Все гаджеты и оборудование предоставляет лагерь.</div></div>
+      <div class="faq-item"><div class="faq-q">Как происходит питание в лагере?</div><div class="faq-a">В городском — перекусы и обед. В загородном (ДРОЦ «Ждановичи») — 3-разовое питание включено в стоимость. Аллергии и предпочтения учитываются.</div></div>
+      <div class="faq-item"><div class="faq-q">Возможен ли возврат средств при отмене?</div><div class="faq-a">Да. При отмене за 7+ дней — полный возврат. Менее 7 дней — перенос на другую смену. Подробности в договоре.</div></div>
+      <div class="faq-item"><div class="faq-q">Как узнать, что происходит с ребёнком?</div><div class="faq-a">Ежедневно педагоги публикуют фото и видео в закрытой группе для родителей. Вы всегда можете позвонить вожатым — мы на связи!</div></div>
+      <div class="faq-item"><div class="faq-q">Есть ли скидка при записи нескольких детей?</div><div class="faq-a">Да! При записи двух и более детей из одной семьи — скидка. Также скидки для постоянных клиентов ITeen Academy. Уточняйте у менеджеров.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-inner fade-in">
+      <div class="cta-text">
+        <span class="section-tag" style="background:rgba(255,255,255,0.14);color:var(--yellow);border-color:rgba(255,255,255,0.18);">Запись открыта</span>
+        <h2>Запишись на<br><span class="yl">ITeen Camp</span><br>прямо сейчас!</h2>
+        <p>Места ограничены — группы маленькие, а желающих много. Оставьте заявку, и наш менеджер свяжется с вами в течение рабочего дня.</p>
+        <ul class="cta-perks">
+          <li>Бесплатная консультация с менеджером</li>
+          <li>Подберём подходящую смену и группу</li>
+          <li>Гибкая система оплаты</li>
+          <li>Скидки для постоянных клиентов</li>
+        </ul>
+        <div class="cta-mascots-row">
+          <img src="3.png" alt="">
+          <img src="кнопа_с_лего__1_.png" class="big" alt="">
+          <img src="22.png" alt="">
+          <img src="191435368.png" alt="">
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div id="form-content">
+          <h3>Оставить заявку</h3>
+          <p>Мы перезвоним в течение рабочего дня</p>
+          <div class="form-group"><label>Имя родителя *</label><input type="text" placeholder="Как вас зовут?" id="f-name"></div>
+          <div class="form-group"><label>Телефон *</label><input type="tel" placeholder="+375 (XX) XXX-XX-XX" id="f-phone"></div>
+          <div class="form-group"><label>Имя ребёнка и возраст</label><input type="text" placeholder="Например: Артём, 9 лет" id="f-child"></div>
+          <div class="form-group"><label>Интересующая программа</label>
+            <select id="f-program">
+              <option value="">Выберите программу</option>
+              <option>Minecraft-экспедиция (загородный)</option>
+              <option>Квест IT-приключений (городской)</option>
+              <option>Смена робототехники</option>
+              <option>Пока не определились</option>
+            </select>
+          </div>
+          <button class="form-submit" onclick="submitForm()">🚀 Записаться в лагерь!</button>
+          <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#">обработкой персональных данных</a></p>
+        </div>
+        <div class="success-msg" id="success-msg">
+          <div class="checkmark">🎉</div>
+          <h4>Заявка принята!</h4>
+          <p>Наш менеджер свяжется с вами в течение рабочего дня. Готовьтесь к лучшему лету!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <a href="#" class="footer-logo"><span class="b">I</span>Teen <span class="y">Camp</span></a>
+        <p>Летний IT-лагерь для детей 6–12 лет от ITeen Academy — 10 лет опыта детского образования в Беларуси.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Программы</h5>
+        <a href="#">Minecraft-экспедиция</a>
+        <a href="#">Квест IT-приключений</a>
+        <a href="#">Смена робототехники</a>
+        <a href="#">Расписание смен</a>
+      </div>
+      <div class="footer-col">
+        <h5>О нас</h5>
+        <a href="https://iteen.by" target="_blank">Главный сайт ITeen</a>
+        <a href="#">Наши педагоги</a>
+        <a href="#">Фотогалерея</a>
+        <a href="#">Отзывы</a>
+      </div>
+      <div class="footer-col">
+        <h5>Контакты</h5>
+        <div class="footer-contact">📞 <a href="tel:+375291933030">+375 (29) 193-30-30</a></div>
+        <div class="footer-contact">✉️ <a href="mailto:info@iteen.by">info@iteen.by</a></div>
+        <div class="footer-contact">📍 ул. Раковская, 25/1</div>
+        <div class="footer-contact">🕐 Пн–Пт: 08:30–19:00</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ООО «Образовательный центр программирования и высоких технологий»</span>
+      <a href="https://iteen.by">iteen.by</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  function submitForm() {
+    if (!document.getElementById('f-name').value || !document.getElementById('f-phone').value) {
+      alert('Пожалуйста, заполните имя и телефон!'); return;
+    }
+    document.getElementById('form-content').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
