@@ -31,9 +31,11 @@
   .nav-top a { color:rgba(255,255,255,0.65);text-decoration:none;transition:color 0.2s; }
   .nav-top a:hover { color:var(--yellow); }
   .nav-inner { max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:11px 24px; }
-  .logo { font-family:'Russo One',sans-serif;font-size:1.55rem;color:white;text-decoration:none;display:flex;align-items:center;gap:5px; }
-  .logo .b { color:var(--blue); }
-  .logo .y { color:var(--yellow); }
+  .logo { text-decoration:none;display:flex;align-items:center;gap:10px; }
+  .logo img { height:44px;width:auto;object-fit:contain; }
+  .logo-text { display:flex;flex-direction:column;line-height:1; }
+  .logo-text .camp { font-family:'Russo One',sans-serif;font-size:1rem;color:var(--yellow);letter-spacing:2px;text-transform:uppercase; }
+  .logo-text .sub { font-family:'Nunito',sans-serif;font-size:0.62rem;font-weight:800;color:rgba(255,255,255,0.5);letter-spacing:1px;text-transform:uppercase; }
   .logo .badge { background:var(--orange);color:white;font-size:0.48rem;font-weight:800;font-family:'Nunito',sans-serif;padding:3px 7px;border-radius:4px;letter-spacing:1px;align-self:flex-start;margin-top:3px; }
   .nav-links { display:flex;gap:22px;list-style:none; }
   .nav-links a { color:rgba(255,255,255,0.82);text-decoration:none;font-weight:700;font-size:0.86rem;transition:color 0.2s; }
@@ -254,9 +256,10 @@
   /* FOOTER */
   footer { background:var(--dark);color:rgba(255,255,255,0.58);padding:46px 0 26px; }
   .footer-inner { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:34px; }
-  .footer-logo { font-family:'Russo One',sans-serif;font-size:1.35rem;color:white;text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-bottom:11px; }
-  .footer-logo .b { color:var(--blue); }
-  .footer-logo .y { color:var(--yellow); }
+  .footer-logo { text-decoration:none;display:inline-flex;align-items:center;gap:9px;margin-bottom:11px; }
+  .footer-logo img { height:38px;width:auto;object-fit:contain; }
+  .footer-logo-text .camp { font-family:'Russo One',sans-serif;font-size:0.95rem;color:var(--yellow);letter-spacing:2px;text-transform:uppercase; }
+  .footer-logo-text .sub { font-family:'Nunito',sans-serif;font-size:0.58rem;font-weight:800;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase; }
   .footer-col p { font-size:0.84rem;line-height:1.6; }
   .footer-col h5 { color:white;font-weight:800;margin-bottom:11px;font-size:0.86rem; }
   .footer-col a { display:block;color:rgba(255,255,255,0.53);text-decoration:none;font-size:0.82rem;margin-bottom:7px;transition:color 0.2s;font-weight:600; }
@@ -301,14 +304,19 @@
 <!-- NAV -->
 <nav>
   <div class="nav-top">
-    <span>📍 Минск</span>
-    <a href="mailto:info@iteen.by">✉ info@iteen.by</a>
-    <a href="tel:+375291933030">📞 +375 (29) 193-30-30</a>
+    <span>📍 Гомель</span>
+    <a href="mailto:info.gomel@iteen.by">✉ info.gomel@iteen.by</a>
+    <a href="tel:+375291733030">📞 +375 (29) 173-30-30</a>
+    <a href="tel:+375291699630">📞 +375 (29) 169-96-30</a>
   </div>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <span class="b">I</span>Teen <span class="y">Camp</span>
-      <span class="badge">ЛЕТО 2025</span>
+      <img src="1772644515407_image.png" alt="ITeen Academy">
+      <div class="logo-text">
+        <span class="camp">Summer Camp</span>
+        <span class="sub">Летний лагерь</span>
+      </div>
+      <span class="badge">ЛЕТО 2026</span>
     </a>
     <ul class="nav-links">
       <li><a href="#formats">Программы</a></li>
@@ -318,7 +326,7 @@
       <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#cta" class="nav-cta">Записаться →</a>
+    <a href="#cta" class="nav-cta">Записаться</a>
   </div>
 </nav>
 
@@ -331,9 +339,9 @@
 
   <div class="hero-inner">
     <div>
-      <div class="hero-tag"><span class="dot"></span>Летний лагерь · Июнь — Август 2025</div>
+      <div class="hero-tag"><span class="dot"></span>Летний лагерь · Июнь — Август 2026</div>
       <h1>Летние<br><span class="yl">IT-приключения</span><br>с <span class="org">ITeen Camp!</span></h1>
-      <p class="hero-desc">Две незабываемые недели, где программирование, робототехника и Minecraft становятся настоящим приключением. Для детей <strong style="color:white">6–12 лет</strong> в Минске.</p>
+      <p class="hero-desc">Две незабываемые недели, где программирование, робототехника и Minecraft становятся настоящим приключением. Для детей <strong style="color:white">6–12 лет</strong> в Гомеле.</p>
       <div class="hero-btns">
         <a href="#cta" class="btn-primary">🚀 Записаться сейчас</a>
         <a href="#formats" class="btn-outline">Узнать больше</a>
@@ -352,8 +360,8 @@
         <img src="5.png" class="mascot-sm right" alt="">
       </div>
       <div class="hero-info-card">
-        <div class="big">📅 Смены с 2 июня по 25 августа</div>
-        <p>ДРОЦ Ждановичи (загородный) · Раковская 25/1 (городской)</p>
+        <div class="big">📅 Смены с 2 июня по 25 августа 2026</div>
+        <p>Гомель · Летний IT-лагерь для детей 6–12 лет</p>
       </div>
     </div>
   </div>
@@ -383,8 +391,7 @@
           <h3>Minecraft-экспедиция «В поисках дневника Стива»</h3>
           <p>Загородный лагерь в ДРОЦ «Ждановичи». Дети живут на природе, играют в Minecraft, участвуют в квестах и командных испытаниях. Каждый день — новая глава захватывающей истории!</p>
           <div class="format-tags">
-            <span class="ftag">📍 ДРОЦ Ждановичи</span>
-            <span class="ftag">👦 2–6 класс</span>
+            <span class="ftag">👦 6–12 лет</span>
             <span class="ftag">⏱ 14 дней</span>
             <span class="ftag">💻 Minecraft</span>
             <span class="ftag">🌿 На природе</span>
@@ -399,10 +406,10 @@
         <div class="fcard-body">
           <span class="format-badge" style="background:rgba(123,63,160,0.12);color:var(--purple);">Городской</span>
           <h3>Квест «Калейдоскоп IT-приключений»</h3>
-          <p>Программирование, дизайн, робототехника и вылазки по Минску — всё в одном! Базируемся на ул. Раковская 25/1 в центре города.</p>
+          <p>Программирование, дизайн, робототехника и вылазки по Гомелю — всё в одном! Удобное расположение в центре города.</p>
           <div class="format-tags">
-            <span class="ftag">📍 Раковская 25/1</span>
-            <span class="ftag">👦 2–6 класс</span>
+            <span class="ftag">📍 Гомель</span>
+            <span class="ftag">👦 6–12 лет</span>
             <span class="ftag">⏱ 5 дней</span>
           </div>
         </div>
@@ -489,7 +496,7 @@
       <div class="day-card"><div class="day-num">День 1 · ПН</div><span class="day-emoji">🚀</span><h4>Старт экспедиции</h4><ul><li>Знакомство с командой</li><li>Вводный квест</li><li>Первые IT-задания</li><li>Вечерний костёр</li></ul></div>
       <div class="day-card"><div class="day-num">День 2 · ВТ</div><span class="day-emoji">💻</span><h4>IT-лаборатория</h4><ul><li>Программирование</li><li>Minecraft-мастерская</li><li>Командный проект</li><li>Спортивные игры</li></ul></div>
       <div class="day-card"><div class="day-num">День 3 · СР</div><span class="day-emoji">🤖</span><h4>День робота</h4><ul><li>Сборка LEGO SPIKE</li><li>Программирование</li><li>Соревнования</li><li>Творческий час</li></ul></div>
-      <div class="day-card"><div class="day-num">День 4 · ЧТ</div><span class="day-emoji">🎨</span><h4>Дизайн и медиа</h4><ul><li>Цифровое рисование</li><li>Анимация</li><li>Фото/видео контент</li><li>Вечерний фестиваль</li></ul></div>
+      <div class="day-card"><div class="day-num">День 4 · ЧТ</div><span class="day-emoji">🎨</span><h4>Дизайн и медиа</h4><ul><li>Цифровое рисование</li><li>Анимация</li><li>Фото/видео контент</li><li>Научное шоу</li></ul></div>
       <div class="day-card"><div class="day-num">День 5 · ПТ</div><span class="day-emoji">🏆</span><h4>День побед</h4><ul><li>Презентация проектов</li><li>Финальный турнир</li><li>Вручение наград</li><li>Праздник команды</li></ul></div>
     </div>
   </div>
@@ -512,16 +519,16 @@
         <div class="time-row"><span class="time-badge">13:00</span><div class="time-content"><strong>Обед и отдых</strong><span>Свободное время, настольные игры</span></div></div>
         <div class="time-row"><span class="time-badge">14:00</span><div class="time-content"><strong>🏆 Тематическое мероприятие</strong><span>Турниры, мастер-классы, экскурсии</span></div></div>
         <div class="time-row"><span class="time-badge">16:00</span><div class="time-content"><strong>Полдник и творчество</strong><span>Арт-студия, музыка, кино</span></div></div>
-        <div class="time-row"><span class="time-badge">17:30</span><div class="time-content"><strong>🎉 Вечернее шоу</strong><span>Презентации, дискотека, конкурсы</span></div></div>
+        <div class="time-row"><span class="time-badge">17:30</span><div class="time-content"><strong>🔬 Научное шоу</strong><span>Эксперименты, опыты и удивительные открытия</span></div></div>
         <div class="time-row"><span class="time-badge">18:30</span><div class="time-content"><strong>Разъезд домой</strong><span>До свидания до завтра!</span></div></div>
       </div>
       <div class="schedule-info">
         <h3>📋 Важная информация</h3>
-        <div class="info-item"><div class="info-icon">📅</div><div><strong>Смены</strong><span>2 июня — 25 августа 2025 г.<br>Смены по 2 недели (10 рабочих дней)</span></div></div>
-        <div class="info-item"><div class="info-icon">👶</div><div><strong>Возраст</strong><span>6–12 лет (1–6 классы)<br>Группы формируются по возрасту</span></div></div>
+        <div class="info-item"><div class="info-icon">📅</div><div><strong>Смены</strong><span>2 июня — 25 августа 2026 г.<br>Смены по 2 недели (10 рабочих дней)</span></div></div>
+        <div class="info-item"><div class="info-icon">👶</div><div><strong>Возраст</strong><span>6–12 лет (1–6 классы)<br>Одна общая группа</span></div></div>
         <div class="info-item"><div class="info-icon">👥</div><div><strong>Размер группы</strong><span>До 12 детей в группе<br>Индивидуальный подход к каждому</span></div></div>
-        <div class="info-item"><div class="info-icon">📍</div><div><strong>Адрес</strong><span>г. Минск, ул. Раковская 25/1<br>ДРОЦ «Ждановичи» (загородный)</span></div></div>
-        <div class="info-item"><div class="info-icon">📞</div><div><strong>Телефон</strong><span>+375 (29) 193-30-30<br>Пн–Пт: 08:30–19:00</span></div></div>
+        <div class="info-item"><div class="info-icon">📍</div><div><strong>Адрес</strong><span>г. Гомель<br>Уточняйте у менеджера</span></div></div>
+        <div class="info-item"><div class="info-icon">📞</div><div><strong>Телефон</strong><span>+375 (29) 173-30-30<br>+375 (29) 169-96-30</span></div></div>
       </div>
     </div>
   </div>
@@ -532,30 +539,38 @@
   <div class="container">
     <div class="section-head fade-in text-center">
       <span class="section-tag">Для кого лагерь</span>
-      <h2 class="section-title">Найди свою <span class="b">группу</span></h2>
-      <p class="section-sub center">Программа адаптирована под каждый возраст — скучно не будет никому!</p>
+      <h2 class="section-title">Одна <span class="b">группа</span> для всех</h2>
+      <p class="section-sub center">Лагерь рассчитан на детей 6–12 лет. Одна дружная смешанная группа — новые друзья и совместные приключения!</p>
     </div>
-    <div class="ages-grid fade-in">
-      <div class="age-card">
-        <img src="3.png" class="age-mascot" alt="">
-        <div class="age-range">6–7</div>
-        <div class="age-label">лет · 1 класс</div>
-        <h4>Первые шаги</h4>
-        <p>Scratch, рисование на компьютере, простые роботы из LEGO. Всё через игру и сказку!</p>
+    <div class="fade-in" style="display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;background:var(--light);border-radius:28px;padding:44px 40px;border:2px solid #D8EEF8;">
+      <div style="text-align:center;flex:1;min-width:180px;">
+        <img src="3.png" style="width:100px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.14));margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;" alt="">
+        <div style="font-family:'Russo One',sans-serif;font-size:3.2rem;color:var(--blue);line-height:1;">6–12</div>
+        <div style="font-weight:800;color:var(--text-muted);font-size:0.85rem;margin-bottom:12px;">лет · 1–6 класс</div>
+        <h4 style="font-weight:800;margin-bottom:8px;">Одна группа</h4>
+        <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.65;max-width:220px;margin:0 auto;">Дети разного возраста учатся вместе — старшие помогают младшим, младшие вдохновляют старших!</p>
       </div>
-      <div class="age-card">
-        <img src="кнопа_с_лего__1_.png" class="age-mascot" alt="">
-        <div class="age-range">8–9</div>
-        <div class="age-label">лет · 2–3 класс</div>
-        <h4>Юный программист</h4>
-        <p>Minecraft-моды, Scratch-игры, WeDo роботы и первые настоящие проекты.</p>
-      </div>
-      <div class="age-card">
-        <img src="191435368.png" class="age-mascot" alt="">
-        <div class="age-range">10–12</div>
-        <div class="age-label">лет · 4–6 класс</div>
-        <h4>Pro-разработчик</h4>
-        <p>Python, Roblox Studio, LEGO SPIKE Prime, соревновательная робототехника и Game Dev.</p>
+      <div style="flex:2;min-width:260px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:white;border-radius:18px;padding:20px;border:2px solid #D8EEF8;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">🎮</div>
+          <strong style="font-size:0.95rem;">Программирование</strong>
+          <p style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;line-height:1.5;">Scratch, Minecraft, Python — задания по уровню</p>
+        </div>
+        <div style="background:white;border-radius:18px;padding:20px;border:2px solid #D8EEF8;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">🤖</div>
+          <strong style="font-size:0.95rem;">Робототехника</strong>
+          <p style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;line-height:1.5;">LEGO конструкторы и командные проекты</p>
+        </div>
+        <div style="background:white;border-radius:18px;padding:20px;border:2px solid #D8EEF8;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">🎨</div>
+          <strong style="font-size:0.95rem;">Дизайн и творчество</strong>
+          <p style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;line-height:1.5;">Цифровое рисование и анимация</p>
+        </div>
+        <div style="background:white;border-radius:18px;padding:20px;border:2px solid #D8EEF8;">
+          <div style="font-size:1.8rem;margin-bottom:8px;">🏆</div>
+          <strong style="font-size:0.95rem;">Игры и активности</strong>
+          <p style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;line-height:1.5;">Квесты, турниры и научные шоу</p>
+        </div>
       </div>
     </div>
   </div>
@@ -575,9 +590,9 @@
       <div class="gitem big">
         <div class="ph" style="background:linear-gradient(135deg,rgba(21,101,192,0.75),rgba(41,171,226,0.5));">
           <img src="кнопа_с_лего__1_.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Командные соревнования<br>по робототехнике</div>
+          <div class="ph-lbl">Командные активности</div>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🏆 Финальный турнир по робототехнике</span></div>
+        <div class="gitem-overlay"><span class="gitem-label">🤝 Командные активности</span></div>
       </div>
       <!-- top center -->
       <div class="gitem">
@@ -591,17 +606,17 @@
       <div class="gitem tall">
         <div class="ph" style="background:linear-gradient(135deg,rgba(123,63,160,0.65),rgba(57,181,74,0.4));">
           <img src="191435368.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Сборка LEGO SPIKE Prime</div>
+          <div class="ph-lbl">Minecraft-мастерская</div>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🤖 LEGO SPIKE Prime</span></div>
+        <div class="gitem-overlay"><span class="gitem-label">🎮 Minecraft-мастерская</span></div>
       </div>
       <!-- bottom center -->
       <div class="gitem">
         <div class="ph" style="background:linear-gradient(135deg,rgba(57,181,74,0.6),rgba(13,35,64,0.5));">
           <img src="22.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Вечернее шоу</div>
+          <div class="ph-lbl">Научное шоу</div>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🎉 Вечернее шоу</span></div>
+        <div class="gitem-overlay"><span class="gitem-label">🔬 Научное шоу</span></div>
       </div>
       <!-- bottom row -->
       <div class="gitem">
@@ -614,9 +629,9 @@
       <div class="gitem">
         <div class="ph" style="background:linear-gradient(135deg,rgba(0,150,180,0.6),rgba(13,35,64,0.55));">
           <img src="21.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Полёты на дронах</div>
+          <div class="ph-lbl">Творческие мастер-классы</div>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🚁 Полёты на дронах</span></div>
+        <div class="gitem-overlay"><span class="gitem-label">🎨 Творческие мастер-классы</span></div>
       </div>
       <div class="gitem">
         <div class="ph" style="background:linear-gradient(135deg,rgba(123,63,160,0.6),rgba(26,62,255,0.4));">
@@ -654,7 +669,7 @@
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">«Третий год подряд отправляем ребёнка в ITeen Camp! Каждый раз новая программа, новые друзья и знания. Это лучший летний лагерь в Минске — проверено!»</p>
+        <p class="review-text">«Третий год подряд отправляем ребёнка в ITeen Camp! Каждый раз новая программа, новые друзья и знания. Это лучший летний лагерь в Гомеле — проверено!»</p>
         <div class="reviewer"><div class="rev-avatar" style="background:var(--purple);">Е</div><div><strong>Елена В.</strong><span style="color:var(--text-muted);font-size:0.75rem;">мама Ильи, 11 лет</span></div></div>
       </div>
     </div>
@@ -685,7 +700,7 @@
     <div class="cta-inner fade-in">
       <div class="cta-text">
         <span class="section-tag" style="background:rgba(255,255,255,0.14);color:var(--yellow);border-color:rgba(255,255,255,0.18);">Запись открыта</span>
-        <h2>Запишись на<br><span class="yl">ITeen Camp</span><br>прямо сейчас!</h2>
+        <h2>Запишись на<br><span class="yl">ITeen Camp</span><br>лето 2026!</h2>
         <p>Места ограничены — группы маленькие, а желающих много. Оставьте заявку, и наш менеджер свяжется с вами в течение рабочего дня.</p>
         <ul class="cta-perks">
           <li>Бесплатная консультация с менеджером</li>
@@ -735,7 +750,13 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-col">
-        <a href="#" class="footer-logo"><span class="b">I</span>Teen <span class="y">Camp</span></a>
+        <a href="#" class="footer-logo">
+          <img src="1772644515407_image.png" alt="ITeen Academy">
+          <div class="footer-logo-text">
+            <span class="camp">Summer Camp</span>
+            <span class="sub">Гомель · 2026</span>
+          </div>
+        </a>
         <p>Летний IT-лагерь для детей 6–12 лет от ITeen Academy — 10 лет опыта детского образования в Беларуси.</p>
       </div>
       <div class="footer-col">
@@ -747,27 +768,28 @@
       </div>
       <div class="footer-col">
         <h5>О нас</h5>
-        <a href="https://iteen.by" target="_blank">Главный сайт ITeen</a>
+        <a href="https://gomel.iteen.by" target="_blank">Сайт ITeen Гомель</a>
         <a href="#">Наши педагоги</a>
         <a href="#">Фотогалерея</a>
         <a href="#">Отзывы</a>
       </div>
       <div class="footer-col">
         <h5>Контакты</h5>
-        <div class="footer-contact">📞 <a href="tel:+375291933030">+375 (29) 193-30-30</a></div>
-        <div class="footer-contact">✉️ <a href="mailto:info@iteen.by">info@iteen.by</a></div>
-        <div class="footer-contact">📍 ул. Раковская, 25/1</div>
+        <div class="footer-contact">📞 <a href="tel:+375291733030">+375 (29) 173-30-30</a></div>
+        <div class="footer-contact">📞 <a href="tel:+375291699630">+375 (29) 169-96-30</a></div>
+        <div class="footer-contact">✉️ <a href="mailto:info.gomel@iteen.by">info.gomel@iteen.by</a></div>
+        <div class="footer-contact">📍 г. Гомель</div>
         <div class="footer-contact">🕐 Пн–Пт: 08:30–19:00</div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ООО «Образовательный центр программирования и высоких технологий»</span>
-      <a href="https://iteen.by">iteen.by</a>
+      <span>© 2026 ООО «Образовательный центр программирования и высоких технологий»</span>
+      <a href="https://gomel.iteen.by">gomel.iteen.by</a>
     </div>
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
@@ -787,15 +809,3 @@
       alert('Пожалуйста, заполните имя и телефон!'); return;
     }
     document.getElementById('form-content').style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
-    });
-  });
-</script>
-</body>
-</html>
