@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ITeen Camp — Летний IT-лагерь для детей 6–12 лет</title>
+<title>Летний IT-лагерь для детей 6–10 лет</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -33,6 +33,7 @@
   .nav-inner { max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:11px 24px; }
   .logo { font-family:'Russo One',sans-serif;font-size:1.55rem;color:white;text-decoration:none;display:flex;align-items:center;gap:5px; }
   .logo .b { color:var(--blue); }
+  .logo .o { color:var(--orange-dark); }
   .logo .y { color:var(--yellow); }
   .logo .badge { background:var(--orange);color:white;font-size:0.48rem;font-weight:800;font-family:'Nunito',sans-serif;padding:3px 7px;border-radius:4px;letter-spacing:1px;align-self:flex-start;margin-top:3px; }
   .nav-links { display:flex;gap:22px;list-style:none; }
@@ -86,6 +87,7 @@
   .section-tag { display:inline-block;background:rgba(41,171,226,0.11);color:var(--blue-dark);font-weight:800;font-size:0.7rem;padding:4px 14px;border-radius:50px;margin-bottom:11px;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(41,171,226,0.22); }
   .section-title { font-family:'Russo One',sans-serif;font-size:2.35rem;line-height:1.1;margin-bottom:11px;color:var(--text); }
   .section-title .b { color:var(--blue); }
+  .section-title .w { color:var(--white); }
   .section-title .o { color:var(--orange); }
   .section-title .p { color:var(--purple); }
   .section-title .y { color:var(--yellow); }
@@ -164,7 +166,7 @@
 
   /* AGES */
   .ages { background:white; }
-  .ages-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+  .ages-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
   .age-card { background:var(--light);border-radius:22px;padding:28px 22px;text-align:center;border:2px solid transparent;transition:all 0.3s;position:relative;overflow:hidden; }
   .age-card:hover { border-color:var(--blue);transform:translateY(-5px);box-shadow:0 12px 36px rgba(41,171,226,0.14); }
   .age-range { font-family:'Russo One',sans-serif;font-size:2.5rem;color:var(--blue);line-height:1; }
@@ -256,6 +258,7 @@
   .footer-inner { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:34px; }
   .footer-logo { font-family:'Russo One',sans-serif;font-size:1.35rem;color:white;text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-bottom:11px; }
   .footer-logo .b { color:var(--blue); }
+  .footer-logo .w { color:var(--white); }
   .footer-logo .y { color:var(--yellow); }
   .footer-col p { font-size:0.84rem;line-height:1.6; }
   .footer-col h5 { color:white;font-weight:800;margin-bottom:11px;font-size:0.86rem; }
@@ -301,24 +304,24 @@
 <!-- NAV -->
 <nav>
   <div class="nav-top">
-    <span>📍 Минск</span>
-    <a href="mailto:info@iteen.by">✉ info@iteen.by</a>
-    <a href="tel:+375291933030">📞 +375 (29) 193-30-30</a>
+    <span>📍 Гомель</span>
+    <a href="mailto:info@iteen.by">✉ info.gomel@iteen.by</a>
+    <a href="tel:+375291933030">📞 +375 (29) 169-96-30</a>
   </div>
   <div class="nav-inner">
     <a href="#" class="logo">
-      <span class="b">I</span>Teen <span class="y">Camp</span>
-      <span class="badge">ЛЕТО 2025</span>
+      Summer <span class="y">City</span><span class="o">Camp</span>
+      
     </a>
     <ul class="nav-links">
-      <li><a href="#formats">Программы</a></li>
+      <li><a href="#formats">Смены</a></li>
       <li><a href="#why">Почему мы</a></li>
       <li><a href="#schedule">Расписание</a></li>
       <li><a href="#gallery">Фото</a></li>
       <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#cta" class="nav-cta">Записаться →</a>
+    <a href="#cta" class="nav-cta">Записаться</a>
   </div>
 </nav>
 
@@ -331,17 +334,17 @@
 
   <div class="hero-inner">
     <div>
-      <div class="hero-tag"><span class="dot"></span>Летний лагерь · Июнь — Август 2025</div>
-      <h1>Летние<br><span class="yl">IT-приключения</span><br>с <span class="org">ITeen Camp!</span></h1>
-      <p class="hero-desc">Две незабываемые недели, где программирование, робототехника и Minecraft становятся настоящим приключением. Для детей <strong style="color:white">6–12 лет</strong> в Минске.</p>
+      <div class="hero-tag"><span class="dot"></span>Летние смены · Июнь — Август 2026</div>
+      <h1>Летние<br><span class="yl">IT-приключения</span><br>с <span class="org">ITeen Academy</span></h1>
+      <p class="hero-desc">Три смены — три пути в мир технологий! Выбери своё приключение: создавай игры в Minecraft и Scratch, проектируй Lego-модели в BrickLink Studio или снимай свои мультфильмы. Для детей <strong style="color:white">6–11 лет</strong> в Гомеле.</p>
       <div class="hero-btns">
         <a href="#cta" class="btn-primary">🚀 Записаться сейчас</a>
         <a href="#formats" class="btn-outline">Узнать больше</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="num">10+</div><div class="label">лет на рынке<br>образования</div></div>
-        <div class="hero-stat"><div class="num">500+</div><div class="label">детей<br>каждое лето</div></div>
-        <div class="hero-stat"><div class="num">4</div><div class="label">IT-направления<br>в одном лагере</div></div>
+        <div class="hero-stat"><div class="num">7+</div><div class="label">лет на рынке<br>образования</div></div>
+        <div class="hero-stat"><div class="num">200+</div><div class="label">детей<br>каждое лето</div></div>
+        <div class="hero-stat"><div class="num">4</div><div class="label">IT-направления<br>на выбор</div></div>
       </div>
     </div>
 
@@ -352,8 +355,8 @@
         <img src="5.png" class="mascot-sm right" alt="">
       </div>
       <div class="hero-info-card">
-        <div class="big">📅 Смены с 2 июня по 25 августа</div>
-        <p>ДРОЦ Ждановичи (загородный) · Раковская 25/1 (городской)</p>
+        <div class="big">📅 Смены с 15 июня по 7 августа</div>
+        <p>IT-площадка "Старый Аэродром"<br>ул. 50 лет БССР, 3-1А</p>
       </div>
     </div>
   </div>
@@ -369,9 +372,9 @@
 <section class="formats" id="formats">
   <div class="container">
     <div class="section-head fade-in">
-      <span class="section-tag">Программы лагеря</span>
+      <span class="section-tag">Наши смены</span>
       <h2 class="section-title">Выбери своё <span class="b">приключение</span></h2>
-      <p class="section-sub">Два формата — загородный и городской. Каждый найдёт что-то по душе!</p>
+      <p class="section-sub">Образовательная часть утром и активный отдых после обеда. Три уникальные смены для тех, кто хочет провести лето ярко и с пользой!</p>
     </div>
     <div class="formats-grid">
       <div class="format-card featured fade-in">
@@ -380,14 +383,18 @@
         </div>
         <div class="fcard-body">
           <span class="format-badge">⭐ Хит сезона</span>
-          <h3>Minecraft-экспедиция «В поисках дневника Стива»</h3>
-          <p>Загородный лагерь в ДРОЦ «Ждановичи». Дети живут на природе, играют в Minecraft, участвуют в квестах и командных испытаниях. Каждый день — новая глава захватывающей истории!</p>
+          <span class="format-badge" style="background:rgba(57,181,74,0.12);color:var(--green);">15 июня - 26 июня</span>
+          <h3>Игровая лаборатория «Время героев»</h3>
+          <p><b>Образовательные IT-курсы до обеда:</b></p><br>
+          <p><span class="ftag">1-2 класс</span> «Конструирование и изобретательство» </p>
+          <p><span class="ftag">3-4 класс</span> «Гейм-лаборатория: Scratch, Kodu, Minecraft»<br><br>
+          <b>После обеда</b> - полезные активности: игры на свежем воздухе, квесты и командные испытания. Каждый день — новая глава захватывающей истории!</p>
           <div class="format-tags">
-            <span class="ftag">📍 ДРОЦ Ждановичи</span>
-            <span class="ftag">👦 2–6 класс</span>
-            <span class="ftag">⏱ 14 дней</span>
-            <span class="ftag">💻 Minecraft</span>
-            <span class="ftag">🌿 На природе</span>
+            <span class="ftag">📍 Старый Аэродром</span>
+            <span class="ftag">👦 1–4 класс</span>
+            <span class="ftag">⏱ 10 дней</span>
+            <span class="ftag">💻 IT-курс</span>
+            <span class="ftag">🌿 Активности на свежем воздухе</span>
           </div>
         </div>
       </div>
@@ -397,13 +404,19 @@
           <img src="22.png" class="mascot-img" alt="">
         </div>
         <div class="fcard-body">
-          <span class="format-badge" style="background:rgba(123,63,160,0.12);color:var(--purple);">Городской</span>
-          <h3>Квест «Калейдоскоп IT-приключений»</h3>
-          <p>Программирование, дизайн, робототехника и вылазки по Минску — всё в одном! Базируемся на ул. Раковская 25/1 в центре города.</p>
+          <span class="format-badge" style="background:rgba(123,63,160,0.12);color:var(--purple);">6 июля - 17 июля</span>
+          
+          <h3>Творческая лаборатория «Мультстарт»</h3>
+          <p><b>Образовательные IT-курсы до обеда:</b></p><br>
+          <p><span class="ftag">1-2 класс</span> «Brick-Крафт. Lego + Бумажное моделирование»</p>
+          <p><span class="ftag">3-4 класс</span> «Stop Motion анимация»<br><br>
+          <b>После обеда</b> - полезные активности: игры на свежем воздухе, квесты и командные испытания. Каждый день — новая глава захватывающей истории!</p>
           <div class="format-tags">
-            <span class="ftag">📍 Раковская 25/1</span>
-            <span class="ftag">👦 2–6 класс</span>
-            <span class="ftag">⏱ 5 дней</span>
+            <span class="ftag">📍 Старый Аэродром</span>
+            <span class="ftag">👦 1–4 класс</span>
+            <span class="ftag">⏱ 10 дней</span>
+            <span class="ftag">🖌️ Творческий курс</span>
+            <span class="ftag">🌿 Активности на свежем воздухе</span>
           </div>
         </div>
         <img src="13.png" class="card-mascot" alt="">
@@ -414,12 +427,18 @@
           <img src="191435368.png" class="mascot-img" alt="">
         </div>
         <div class="fcard-body">
-          <span class="format-badge" style="background:rgba(57,181,74,0.12);color:var(--green);">Технологии</span>
-          <h3>Смена робототехники и изобретений</h3>
-          <p>LEGO SPIKE Prime, дроны, инженерные задачи и командные соревнования. Дети строят, программируют и запускают своих роботов!</p>
+          <span class="format-badge" style="background:rgba(57,181,74,0.12);color:var(--green);">27 июля - 7 августа</span>
+          <h3>Техническая лаборатория «Кибер Крафт»</h3>
+          <p><b>Образовательные IT-курсы до обеда:</b></p><br>
+          <p><span class="ftag">1-2 класс</span> «Как устроен мир. Основы технического творчества»</p>
+          <p><span class="ftag">3-4 класс</span> «Вселенная Minecraft»<br><br>
+          <b>После обеда</b> - полезные активности: игры на свежем воздухе, квесты и командные испытания. Каждый день — новая глава захватывающей истории!</p>
           <div class="format-tags">
-            <span class="ftag">🤖 LEGO SPIKE</span>
-            <span class="ftag">🚁 Дроны</span>
+            <span class="ftag">📍 Старый Аэродром</span>
+            <span class="ftag">👦 1–4 класс</span>
+            <span class="ftag">⏱ 10 дней</span>
+            <span class="ftag">⚙️ Креативный курс</span>
+            <span class="ftag">🌿 Активности на свежем воздухе</span>
           </div>
         </div>
         <img src="191435354.png" class="card-mascot" alt="">
@@ -434,13 +453,13 @@
     <div class="section-head fade-in text-center">
       <span class="section-tag">Наши преимущества</span>
       <h2 class="section-title">Почему родители <span class="o">доверяют</span> нам</h2>
-      <p class="section-sub center">ITeen Academy — это не просто лагерь. Это 10 лет опыта и тысячи счастливых детей.</p>
+      <p class="section-sub center">ITeen Academy — это не просто образовательный центр. Это 7 лет опыта и тысячи счастливых детей.</p>
     </div>
     <div class="why-grid">
       <div class="why-card fade-in">
         <div class="why-icon wi-orange">🏆</div>
-        <h4>10 лет опыта</h4>
-        <p>Более 10 лет в сфере детского IT-образования. Наши выпускники — победители республиканских и международных конкурсов.</p>
+        <h4>7+ лет опыта</h4>
+        <p>Более 7 лет в сфере детского IT-образования. Наши выпускники — победители республиканских и международных конкурсов.</p>
         <img src="19.png" class="why-mascot" alt="">
       </div>
       <div class="why-card fade-in">
@@ -464,7 +483,7 @@
       <div class="why-card fade-in">
         <div class="why-icon wi-green">🛡️</div>
         <h4>Безопасность детей</h4>
-        <p>Постоянный присмотр вожатых, медицинское сопровождение и ежедневная связь с родителями.</p>
+        <p>Постоянный присмотр сопровождающих и ежедневная связь с родителями.</p>
         <img src="15.png" class="why-mascot" alt="">
       </div>
       <div class="why-card fade-in">
@@ -481,16 +500,25 @@
 <section class="program" id="program">
   <div class="container">
     <div class="section-head fade-in">
-      <span class="section-tag">Типичная неделя</span>
-      <h2 class="section-title">Что нас <span class="y">ждёт</span> каждую неделю</h2>
+      <span class="section-tag">Активности</span>
+      <h2 class="section-title">Что нас <span class="y">ждёт</span> каждую смену</h2>
       <p class="section-sub">Каждый день лагеря — новая страница приключения!</p>
     </div>
     <div class="days-grid fade-in">
-      <div class="day-card"><div class="day-num">День 1 · ПН</div><span class="day-emoji">🚀</span><h4>Старт экспедиции</h4><ul><li>Знакомство с командой</li><li>Вводный квест</li><li>Первые IT-задания</li><li>Вечерний костёр</li></ul></div>
-      <div class="day-card"><div class="day-num">День 2 · ВТ</div><span class="day-emoji">💻</span><h4>IT-лаборатория</h4><ul><li>Программирование</li><li>Minecraft-мастерская</li><li>Командный проект</li><li>Спортивные игры</li></ul></div>
-      <div class="day-card"><div class="day-num">День 3 · СР</div><span class="day-emoji">🤖</span><h4>День робота</h4><ul><li>Сборка LEGO SPIKE</li><li>Программирование</li><li>Соревнования</li><li>Творческий час</li></ul></div>
-      <div class="day-card"><div class="day-num">День 4 · ЧТ</div><span class="day-emoji">🎨</span><h4>Дизайн и медиа</h4><ul><li>Цифровое рисование</li><li>Анимация</li><li>Фото/видео контент</li><li>Вечерний фестиваль</li></ul></div>
-      <div class="day-card"><div class="day-num">День 5 · ПТ</div><span class="day-emoji">🏆</span><h4>День побед</h4><ul><li>Презентация проектов</li><li>Финальный турнир</li><li>Вручение наград</li><li>Праздник команды</li></ul></div>
+      <div class="day-card"><div class="day-num">Знания</div><span class="day-emoji">💻</span><h4>IT-обучение</h4>
+      <ul><li>Собственные IT-проекты</li><li>Работа в команде</li><li>Научное шоу</li><li>Презентация проектов</li></ul></div>
+
+      <div class="day-card"><div class="day-num">Активности</div><span class="day-emoji">👋</span><h4>Здоровый отдых</h4>
+      <ul><li>Творческие лаборатории</li><li>Мастер-классы</li><li>Экскурсии</li><li>Игры на свежем воздухе</li></ul></div>
+
+      <div class="day-card"><div class="day-num">Командный дух</div><span class="day-emoji">🗺️</span><h4>Приключения</h4>
+      <ul><li>Интерактивные квесты</li><li>Командные игры</li><li>Соревнования</li><li>Друзья и живое общение</li></ul></div>
+
+      <div class="day-card"><div class="day-num">Комфорт и забота</div><span class="day-emoji">🌲</span><h4>Тёплая атмосфера</h4>
+      <ul><li>Трёхразовое питание</li><li>Безопасная среда</li><li>Сопровождение</li><li>Яркие эмоции</li></ul></div>
+
+      <div class="day-card"><div class="day-num">Обратная связь</div><span class="day-emoji">👨‍👩‍👧‍👦</span><h4>Наша история</h4>
+      <ul><li>Фото и видеоотчёты</li><li>Родительский день</li><li>Вручение наград</li><li>Выпускной праздник</li></ul></div>
     </div>
   </div>
 </section>
@@ -505,23 +533,24 @@
     </div>
     <div class="schedule-wrap fade-in">
       <div class="time-table">
-        <div class="time-row"><span class="time-badge">08:30</span><div class="time-content"><strong>Сбор и завтрак</strong><span>Приветствие, зарядка, утренние игры</span></div></div>
-        <div class="time-row"><span class="time-badge">09:30</span><div class="time-content"><strong>🖥 IT-занятие №1</strong><span>Программирование, робототехника или дизайн</span></div></div>
-        <div class="time-row"><span class="time-badge">11:00</span><div class="time-content"><strong>Активная пауза</strong><span>Подвижные игры на свежем воздухе</span></div></div>
-        <div class="time-row"><span class="time-badge">11:30</span><div class="time-content"><strong>🎮 IT-занятие №2</strong><span>Командный проект или квест по сюжету</span></div></div>
+        <div class="time-row"><span class="time-badge">09:00</span><div class="time-content"><strong>Сбор и завтрак</strong><span>Приветствиеи зарядка</span></div></div>
+        <div class="time-row"><span class="time-badge">09:30</span><div class="time-content"><strong>Утренняя активность</strong><span>Игры на командообразование</span></div></div>
+        <div class="time-row"><span class="time-badge">10:00</span><div class="time-content"><strong>🖥 IT-занятие</strong><span>Программирование, робототехника или дизайн</span></div></div>
+        <div class="time-row"><span class="time-badge">11:40</span><div class="time-content"><strong>Активная пауза</strong><span>Подвижные игры на свежем воздухе</span></div></div>
         <div class="time-row"><span class="time-badge">13:00</span><div class="time-content"><strong>Обед и отдых</strong><span>Свободное время, настольные игры</span></div></div>
-        <div class="time-row"><span class="time-badge">14:00</span><div class="time-content"><strong>🏆 Тематическое мероприятие</strong><span>Турниры, мастер-классы, экскурсии</span></div></div>
+        <div class="time-row"><span class="time-badge">14:00</span><div class="time-content"><strong>🏆 Тематическая активность</strong><span>Турниры, мастер-классы, экскурсии</span></div></div>
         <div class="time-row"><span class="time-badge">16:00</span><div class="time-content"><strong>Полдник и творчество</strong><span>Арт-студия, музыка, кино</span></div></div>
         <div class="time-row"><span class="time-badge">17:30</span><div class="time-content"><strong>🎉 Вечернее шоу</strong><span>Презентации, дискотека, конкурсы</span></div></div>
-        <div class="time-row"><span class="time-badge">18:30</span><div class="time-content"><strong>Разъезд домой</strong><span>До свидания до завтра!</span></div></div>
+        <div class="time-row"><span class="time-badge">18:30</span><div class="time-content"><strong>Завершение дня</strong><span>До свидания до завтра!</span></div></div>
       </div>
       <div class="schedule-info">
-        <h3>📋 Важная информация</h3>
-        <div class="info-item"><div class="info-icon">📅</div><div><strong>Смены</strong><span>2 июня — 25 августа 2025 г.<br>Смены по 2 недели (10 рабочих дней)</span></div></div>
-        <div class="info-item"><div class="info-icon">👶</div><div><strong>Возраст</strong><span>6–12 лет (1–6 классы)<br>Группы формируются по возрасту</span></div></div>
+        <h2>📋 Важная информация</h2>
+        <br>
+        <div class="info-item"><div class="info-icon">📅</div><div><strong>Смены</strong><span>15 июня — 7 августа 2026 г.<br>Смены по 2 недели (10 рабочих дней)</span></div></div>
+        <div class="info-item"><div class="info-icon">👶</div><div><strong>Возраст</strong><span>6–10 лет (1–4 классы)<br>Утренние учебные группы формируются по возрасту</span></div></div>
         <div class="info-item"><div class="info-icon">👥</div><div><strong>Размер группы</strong><span>До 12 детей в группе<br>Индивидуальный подход к каждому</span></div></div>
-        <div class="info-item"><div class="info-icon">📍</div><div><strong>Адрес</strong><span>г. Минск, ул. Раковская 25/1<br>ДРОЦ «Ждановичи» (загородный)</span></div></div>
-        <div class="info-item"><div class="info-icon">📞</div><div><strong>Телефон</strong><span>+375 (29) 193-30-30<br>Пн–Пт: 08:30–19:00</span></div></div>
+        <div class="info-item"><div class="info-icon">📍</div><div><strong>Адрес</strong><span>г. Гомель, ул. 50 лет БССР 3-1А<br>Старый Аэродром</span></div></div>
+        <div class="info-item"><div class="info-icon">📞</div><div><strong>Телефон</strong><span>+375 (29) 169-96-30<br>Пн–Пт: 09:00–19:00</span></div></div>
       </div>
     </div>
   </div>
@@ -531,32 +560,26 @@
 <section class="ages">
   <div class="container">
     <div class="section-head fade-in text-center">
-      <span class="section-tag">Для кого лагерь</span>
+      <span class="section-tag">Утренние учебные группы</span>
       <h2 class="section-title">Найди свою <span class="b">группу</span></h2>
       <p class="section-sub center">Программа адаптирована под каждый возраст — скучно не будет никому!</p>
     </div>
     <div class="ages-grid fade-in">
       <div class="age-card">
-        <img src="3.png" class="age-mascot" alt="">
-        <div class="age-range">6–7</div>
-        <div class="age-label">лет · 1 класс</div>
-        <h4>Первые шаги</h4>
-        <p>Scratch, рисование на компьютере, простые роботы из LEGO. Всё через игру и сказку!</p>
-      </div>
-      <div class="age-card">
         <img src="кнопа_с_лего__1_.png" class="age-mascot" alt="">
-        <div class="age-range">8–9</div>
-        <div class="age-label">лет · 2–3 класс</div>
-        <h4>Юный программист</h4>
-        <p>Minecraft-моды, Scratch-игры, WeDo роботы и первые настоящие проекты.</p>
+        <div class="age-range">6–8</div>
+        <div class="age-label">лет · 1-2 класс</div>
+        <h4>Первые шаги</h4>
+        <p>Робототехника и конструирование, простые роботы из LEGO, 3D-моделирование LEGO, бумажное творчество. Всё через игру и сказку!</p>
       </div>
       <div class="age-card">
         <img src="191435368.png" class="age-mascot" alt="">
-        <div class="age-range">10–12</div>
-        <div class="age-label">лет · 4–6 класс</div>
-        <h4>Pro-разработчик</h4>
-        <p>Python, Roblox Studio, LEGO SPIKE Prime, соревновательная робототехника и Game Dev.</p>
+        <div class="age-range">8–10</div>
+        <div class="age-label">лет · 3–4 класс</div>
+        <h4>Юный программист</h4>
+        <p>Minecraft, Scratch-игры, Лаборатория Kodu Game Lab, создание мультфильмов в технике Sop Motion и первые настоящие проекты.</p>
       </div>
+      
     </div>
   </div>
 </section>
@@ -567,7 +590,7 @@
     <div class="section-head fade-in">
       <span class="section-tag">Воспоминания</span>
       <h2 class="section-title">Как это было <span class="y">в прошлом году</span> 📸</h2>
-      <p class="section-sub">Загляни в атмосферу ITeen Camp — смех, дружба, роботы и море приключений!</p>
+      <p class="section-sub">Загляни в атмосферу прошлого Summer City Camp — смех, дружба, роботы и море приключений!</p>
     </div>
 
     <div class="gallery-grid fade-in">
@@ -614,9 +637,9 @@
       <div class="gitem">
         <div class="ph" style="background:linear-gradient(135deg,rgba(0,150,180,0.6),rgba(13,35,64,0.55));">
           <img src="21.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Полёты на дронах</div>
+          <div class="ph-lbl">Экскурсии</div>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🚁 Полёты на дронах</span></div>
+        <div class="gitem-overlay"><span class="gitem-label">🚁 Экскурсии</span></div>
       </div>
       <div class="gitem">
         <div class="ph" style="background:linear-gradient(135deg,rgba(123,63,160,0.6),rgba(26,62,255,0.4));">
@@ -628,7 +651,7 @@
     </div>
 
     <p style="text-align:center;margin-top:28px;color:rgba(255,255,255,0.45);font-size:0.84rem;font-weight:700;position:relative;z-index:1;">
-      📷 Больше фото и видео — в нашем Instagram и ВКонтакте
+      📷 Больше фото и видео — в нашем <a href="https://www.instagram.com/stories/highlights/18078897760846532/" target="_blank" style="color: rgb(255, 255, 255);">Instagram</a>
     </p>
   </div>
   <img src="191435354.png" class="gallery-mascot-deco" alt="">
@@ -644,18 +667,18 @@
     <div class="reviews-grid fade-in">
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">«Сын ждал лагерь весь учебный год! Вернулся в восторге — уже придумывает свою игру в Minecraft. Педагоги внимательные, атмосфера дружелюбная. Записались на следующую смену!»</p>
-        <div class="reviewer"><div class="rev-avatar" style="background:var(--orange);">М</div><div><strong>Марина К.</strong><span style="color:var(--text-muted);font-size:0.75rem;">мама Артёма, 9 лет</span></div></div>
+        <p class="review-text">«Сын ждал этого весь учебный год! Вернулся в восторге — уже придумывает свою игру в Minecraft. Педагоги внимательные, атмосфера дружелюбная. Записались на следующую смену!»</p>
+        <div class="reviewer"><div class="rev-avatar" style="background:var(--orange);">М</div><div><strong>Марина К.</strong></div></div>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">«Дочка раньше не интересовалась технологиями — после лагеря попросила купить конструктор LEGO Spike. ITeen умеет влюблять детей в IT. Большое спасибо команде!»</p>
-        <div class="reviewer"><div class="rev-avatar" style="background:var(--blue);">А</div><div><strong>Андрей П.</strong><span style="color:var(--text-muted);font-size:0.75rem;">папа Анастасии, 8 лет</span></div></div>
+        <p class="review-text">«Дочка раньше не интересовалась технологиями — после занятий попросила купить конструктор LEGO WeDo. ITeen умеет влюблять детей в IT. Большое спасибо команде!»</p>
+        <br><div class="reviewer"><div class="rev-avatar" style="background:var(--blue);">А</div><div><strong>Андрей П.</strong></div></div>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p class="review-text">«Третий год подряд отправляем ребёнка в ITeen Camp! Каждый раз новая программа, новые друзья и знания. Это лучший летний лагерь в Минске — проверено!»</p>
-        <div class="reviewer"><div class="rev-avatar" style="background:var(--purple);">Е</div><div><strong>Елена В.</strong><span style="color:var(--text-muted);font-size:0.75rem;">мама Ильи, 11 лет</span></div></div>
+        <p class="review-text">«Третий год подряд отправляем ребёнка в ITeen! Каждый раз новая интересная программа, новые друзья и знания.»</p>
+        <br><br><br><div class="reviewer"><div class="rev-avatar" style="background:var(--purple);">Е</div><div><strong>Елена В.</strong></div></div>
       </div>
     </div>
   </div>
@@ -665,15 +688,15 @@
 <section class="faq" id="faq">
   <div class="container">
     <div class="section-head fade-in text-center">
-      <span class="section-tag">FAQ</span>
+      <span class="section-tag">ЧаВо</span>
       <h2 class="section-title">Частые <span class="b">вопросы</span></h2>
     </div>
     <div class="faq-list fade-in">
-      <div class="faq-item"><div class="faq-q">Нужен ли предварительный опыт программирования?</div><div class="faq-a">Нет! Лагерь подходит и для полных новичков, и для тех, кто уже имеет опыт. Группы формируются по уровню — каждый получит задания подходящей сложности.</div></div>
-      <div class="faq-item"><div class="faq-q">Что нужно брать с собой ребёнку?</div><div class="faq-a">Сменную обувь, удобную одежду, канцелярию и хорошее настроение! Все гаджеты и оборудование предоставляет лагерь.</div></div>
-      <div class="faq-item"><div class="faq-q">Как происходит питание в лагере?</div><div class="faq-a">В городском — перекусы и обед. В загородном (ДРОЦ «Ждановичи») — 3-разовое питание включено в стоимость. Аллергии и предпочтения учитываются.</div></div>
-      <div class="faq-item"><div class="faq-q">Возможен ли возврат средств при отмене?</div><div class="faq-a">Да. При отмене за 7+ дней — полный возврат. Менее 7 дней — перенос на другую смену. Подробности в договоре.</div></div>
-      <div class="faq-item"><div class="faq-q">Как узнать, что происходит с ребёнком?</div><div class="faq-a">Ежедневно педагоги публикуют фото и видео в закрытой группе для родителей. Вы всегда можете позвонить вожатым — мы на связи!</div></div>
+      <div class="faq-item"><div class="faq-q">Нужен ли предварительный опыт программирования?</div><div class="faq-a">Нет! Занятия подходят и для полных новичков, и для тех, кто уже имеет опыт. Учебные группы формируются по уровню — каждый получит задания подходящей сложности.</div></div>
+      <div class="faq-item"><div class="faq-q">Что нужно брать с собой ребёнку?</div><div class="faq-a">Сменную обувь, удобную одежду и хорошее настроение! Все гаджеты, оборудование и канцелярию предоставляет ITeen.</div></div>
+      <div class="faq-item"><div class="faq-q">Как происходит питание?</div><div class="faq-a">Завтрак, обед и полдник. Питание включено в стоимость.</div></div>
+      <div class="faq-item"><div class="faq-q">Возможен ли возврат средств при отмене смены?</div><div class="faq-a">Да. При отмене смены — полный возврат или перенос на другую смену.</div></div>
+      <div class="faq-item"><div class="faq-q">Как узнать, что происходит с ребёнком?</div><div class="faq-a">Ежедневно педагоги и сопровождающие публикуют фото и видео в закрытой группе для родителей. Вы всегда можете позвонить сопровождающим — мы на связи!</div></div>
       <div class="faq-item"><div class="faq-q">Есть ли скидка при записи нескольких детей?</div><div class="faq-a">Да! При записи двух и более детей из одной семьи — скидка. Также скидки для постоянных клиентов ITeen Academy. Уточняйте у менеджеров.</div></div>
     </div>
   </div>
@@ -685,7 +708,7 @@
     <div class="cta-inner fade-in">
       <div class="cta-text">
         <span class="section-tag" style="background:rgba(255,255,255,0.14);color:var(--yellow);border-color:rgba(255,255,255,0.18);">Запись открыта</span>
-        <h2>Запишись на<br><span class="yl">ITeen Camp</span><br>прямо сейчас!</h2>
+        <h2>Забронируй место на любую смену<br><span class="yl">Summer City Camp</span><br>прямо сейчас!</h2>
         <p>Места ограничены — группы маленькие, а желающих много. Оставьте заявку, и наш менеджер свяжется с вами в течение рабочего дня.</p>
         <ul class="cta-perks">
           <li>Бесплатная консультация с менеджером</li>
@@ -708,21 +731,21 @@
           <div class="form-group"><label>Имя родителя *</label><input type="text" placeholder="Как вас зовут?" id="f-name"></div>
           <div class="form-group"><label>Телефон *</label><input type="tel" placeholder="+375 (XX) XXX-XX-XX" id="f-phone"></div>
           <div class="form-group"><label>Имя ребёнка и возраст</label><input type="text" placeholder="Например: Артём, 9 лет" id="f-child"></div>
-          <div class="form-group"><label>Интересующая программа</label>
+          <div class="form-group"><label>Интересующая смена</label>
             <select id="f-program">
-              <option value="">Выберите программу</option>
-              <option>Minecraft-экспедиция (загородный)</option>
-              <option>Квест IT-приключений (городской)</option>
-              <option>Смена робототехники</option>
+              <option value="">Выберите смену</option>
+              <option>15 июня - 26 июня. Игровая лаборатория «Время героев»</option>
+              <option>6 июля - 17 июля. Творческая лаборатория «Мультстарт»</option>
+              <option>27 июля - 7 августа. Техническая лаборатория «Кибер Крафт»</option>
               <option>Пока не определились</option>
             </select>
           </div>
-          <button class="form-submit" onclick="submitForm()">🚀 Записаться в лагерь!</button>
+          <button class="form-submit" onclick="submitForm()">🚀 Оставить заявку</button>
           <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#">обработкой персональных данных</a></p>
         </div>
         <div class="success-msg" id="success-msg">
           <div class="checkmark">🎉</div>
-          <h4>Заявка принята!</h4>
+          <h4>Ваша заявка принята!</h4>
           <p>Наш менеджер свяжется с вами в течение рабочего дня. Готовьтесь к лучшему лету!</p>
         </div>
       </div>
@@ -735,33 +758,32 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-col">
-        <a href="#" class="footer-logo"><span class="b">I</span>Teen <span class="y">Camp</span></a>
-        <p>Летний IT-лагерь для детей 6–12 лет от ITeen Academy — 10 лет опыта детского образования в Беларуси.</p>
+        <a href="#" class="footer-logo"><span class="w">ITeen </span><span class="y">Summer Camp</span></a>
+        <p>Summer City Camp для детей 6–10 лет от ITeen Academy — 7 лет опыта детского образования в Гомеле.</p>
       </div>
       <div class="footer-col">
-        <h5>Программы</h5>
-        <a href="#">Minecraft-экспедиция</a>
-        <a href="#">Квест IT-приключений</a>
-        <a href="#">Смена робототехники</a>
-        <a href="#">Расписание смен</a>
+        <h5>Смены</h5>
+        <a href="#">Игровая лаборатория «Время героев»</a>
+        <a href="#">Творческая лаборатория «Мультстарт»</a>
+        <a href="#">Техническая лаборатория «Кибер Крафт»</a>
       </div>
       <div class="footer-col">
         <h5>О нас</h5>
-        <a href="https://iteen.by" target="_blank">Главный сайт ITeen</a>
-        <a href="#">Наши педагоги</a>
-        <a href="#">Фотогалерея</a>
-        <a href="#">Отзывы</a>
+        <a href="https://gomel.iteen.by" target="_blank">сайт ITeen</a>
+        <a href="https://gomel.iteen.by/about/teachers/">Наши педагоги</a>
+        <a href="https://gomel.iteen.by/about/photo-gallery/">Фотогалерея</a>
+        <a href="https://gomel.iteen.by/about/reviews/">Отзывы</a>
       </div>
       <div class="footer-col">
         <h5>Контакты</h5>
-        <div class="footer-contact">📞 <a href="tel:+375291933030">+375 (29) 193-30-30</a></div>
-        <div class="footer-contact">✉️ <a href="mailto:info@iteen.by">info@iteen.by</a></div>
-        <div class="footer-contact">📍 ул. Раковская, 25/1</div>
-        <div class="footer-contact">🕐 Пн–Пт: 08:30–19:00</div>
+        <div class="footer-contact">📞 <a href="tel:+375291933030">+375 (29) 169-96-30</a></div>
+        <div class="footer-contact">✉️ <a href="mailto:info.gomel@iteen.by">info.gomel@iteen.by</a></div>
+        <div class="footer-contact">📍 пр-т Речицкий, 80 <br>📍 ул. Мазурова, 110 <br>📍 ул. 50 лет БССР, 3-1А</div>
+        <div class="footer-contact">🕐 Пн–Пт: 09:00–19:00</div>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 ООО «Образовательный центр программирования и высоких технологий»</span>
+      <span>© 2026 ООО «Образовательный центр программирования и высоких технологий»</span>
       <a href="https://iteen.by">iteen.by</a>
     </div>
   </div>
