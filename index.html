@@ -182,24 +182,84 @@
   .gallery .section-title { color:white; }
   .gallery .section-sub { color:rgba(255,255,255,0.62); }
 
-  .gallery-grid { display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:13px; }
-  .gitem { border-radius:18px;overflow:hidden;position:relative;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s; }
-  .gitem:hover { transform:scale(1.03);box-shadow:0 14px 40px rgba(0,0,0,0.4);z-index:2; }
+  .gallery-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:200px;
+    gap:14px;
+  }
+  .gitem {
+    border-radius:16px;
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+    transition:transform 0.3s,box-shadow 0.3s;
+    background:#1a3a5c;
+  }
+  .gitem:hover { transform:scale(1.025);box-shadow:0 16px 44px rgba(0,0,0,0.5);z-index:2; }
+  .gitem img { width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s; }
+  .gitem:hover img { transform:scale(1.06); }
   .gitem.big  { grid-column:span 2;grid-row:span 2; }
   .gitem.tall { grid-row:span 2; }
   .gitem.wide { grid-column:span 2; }
 
-  .ph { width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px; }
-  .ph .ph-icon { font-size:2.2rem; }
-  .ph .ph-lbl { font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.65);text-align:center;line-height:1.4; }
-  .ph .ph-mascot { width:70px;object-fit:contain;opacity:0.55; }
-  .gitem.big .ph .ph-mascot { width:110px; }
-
-  .gitem-overlay { position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.55) 0%,transparent 55%);display:flex;align-items:flex-end;padding:13px;opacity:0;transition:opacity 0.3s; }
+  .gitem-overlay {
+    position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.08) 50%,transparent 100%);
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
+    padding:14px 16px;
+    opacity:0;transition:opacity 0.3s;
+  }
   .gitem:hover .gitem-overlay { opacity:1; }
-  .gitem-label { color:white;font-weight:700;font-size:0.8rem; }
+  .gitem-label { color:white;font-weight:700;font-size:0.82rem;line-height:1.35; }
+  .gitem-zoom { color:rgba(255,255,255,0.7);font-size:0.72rem;margin-top:3px;display:flex;align-items:center;gap:4px; }
+  .gitem-zoom::before { content:'⤢';font-size:0.85rem; }
 
   .gallery-mascot-deco { position:absolute;bottom:16px;right:24px;width:130px;opacity:0.22;animation:floatY 6s ease-in-out infinite;pointer-events:none; }
+
+  /* LIGHTBOX */
+  .lb {
+    display:none;position:fixed;inset:0;z-index:9999;
+    background:rgba(5,15,30,0.96);
+    align-items:center;justify-content:center;
+    padding:20px;
+  }
+  .lb.active { display:flex; }
+  .lb-inner {
+    position:relative;max-width:1100px;width:100%;
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .lb-img {
+    max-height:80vh;max-width:100%;
+    border-radius:14px;
+    object-fit:contain;
+    box-shadow:0 30px 80px rgba(0,0,0,0.6);
+    animation:lbFadeIn 0.25s ease;
+  }
+  @keyframes lbFadeIn { from{opacity:0;transform:scale(0.96);}to{opacity:1;transform:scale(1);} }
+  .lb-caption {
+    color:rgba(255,255,255,0.85);font-size:0.92rem;font-weight:700;
+    text-align:center;letter-spacing:0.3px;
+  }
+  .lb-close {
+    position:fixed;top:20px;right:26px;
+    background:rgba(255,255,255,0.12);border:none;color:white;
+    font-size:1.6rem;line-height:1;width:44px;height:44px;border-radius:50%;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background 0.2s;
+  }
+  .lb-close:hover { background:rgba(255,255,255,0.22); }
+  .lb-nav {
+    position:fixed;top:50%;transform:translateY(-50%);
+    background:rgba(255,255,255,0.1);border:none;color:white;
+    font-size:1.8rem;width:52px;height:52px;border-radius:50%;
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background 0.2s;
+  }
+  .lb-nav:hover { background:rgba(255,255,255,0.22); }
+  .lb-prev { left:16px; }
+  .lb-next { right:16px; }
+  .lb-counter { color:rgba(255,255,255,0.45);font-size:0.78rem;font-weight:700; }
 
   /* REVIEWS */
   .reviews { background:var(--light); }
@@ -279,7 +339,7 @@
     .hero h1 { font-size:2.6rem; }
     .days-grid { grid-template-columns:repeat(3,1fr); }
     .footer-inner { grid-template-columns:1fr 1fr; }
-    .gallery-grid { grid-template-columns:repeat(2,1fr); }
+    .gallery-grid { grid-template-columns:repeat(2,1fr);grid-auto-rows:170px; }
     .gitem.big { grid-column:span 2; }
   }
   @media(max-width:768px) {
@@ -296,8 +356,10 @@
     .footer-inner { grid-template-columns:1fr 1fr; }
     .nav-links { display:none; }
     .section-title { font-size:1.75rem; }
-    .gallery-grid { grid-template-columns:1fr 1fr; }
+    .gallery-grid { grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:10px; }
     .gitem.tall { grid-row:span 1; }
+    .gitem.big { grid-column:span 2;grid-row:span 2; }
+    .lb-nav { display:none; }
   }
 </style>
 </head>
@@ -596,60 +658,63 @@
     </div>
 
     <div class="gallery-grid fade-in">
-      <!-- BIG left -->
-      <div class="gitem big">
-        <div class="ph" style="background:linear-gradient(135deg,rgba(21,101,192,0.75),rgba(41,171,226,0.5));">
-          <img src="кнопа_с_лего__1_.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Командные соревнования<br>по робототехнике</div>
+
+      <div class="gitem big" data-idx="0">
+        <img src="images/Занимаемся техническим конструированием.JPG" alt="Занимаемся техническим конструированием">
+        <div class="gitem-overlay">
+          <span class="gitem-label">🔧 Занимаемся техническим конструированием</span>
+          <span class="gitem-zoom">Открыть</span>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🏆 Финальный турнир по робототехнике</span></div>
       </div>
-      <!-- top center -->
-      <div class="gitem">
-        <div class="ph" style="background:linear-gradient(135deg,rgba(247,148,29,0.6),rgba(231,100,8,0.45));">
-          <img src="3.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Minecraft-сессия</div>
+
+      <div class="gitem" data-idx="1">
+        <img src="images/Получаем актуальные IT-знания.jpg" alt="Получаем актуальные IT-знания">
+        <div class="gitem-overlay">
+          <span class="gitem-label">💻 Получаем актуальные IT-знания</span>
+          <span class="gitem-zoom">Открыть</span>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🎮 Minecraft-лаборатория</span></div>
       </div>
-      <!-- tall right -->
-      <div class="gitem tall">
-        <div class="ph" style="background:linear-gradient(135deg,rgba(123,63,160,0.65),rgba(57,181,74,0.4));">
-          <img src="191435368.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Сборка LEGO SPIKE Prime</div>
+
+      <div class="gitem tall" data-idx="2">
+        <img src="images/Презентация творческих проектов.JPG" alt="Презентация творческих проектов" style="object-position:top center;">
+        <div class="gitem-overlay">
+          <span class="gitem-label">🎨 Презентация творческих проектов</span>
+          <span class="gitem-zoom">Открыть</span>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🤖 LEGO SPIKE Prime</span></div>
       </div>
-      <!-- bottom center -->
-      <div class="gitem">
-        <div class="ph" style="background:linear-gradient(135deg,rgba(57,181,74,0.6),rgba(13,35,64,0.5));">
-          <img src="22.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Вечернее шоу</div>
+
+      <div class="gitem" data-idx="3">
+        <img src="images/Программируем роботов.JPG" alt="Программируем роботов">
+        <div class="gitem-overlay">
+          <span class="gitem-label">🤖 Программируем роботов</span>
+          <span class="gitem-zoom">Открыть</span>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🎉 Вечернее шоу</span></div>
       </div>
-      <!-- bottom row -->
-      <div class="gitem">
-        <div class="ph" style="background:linear-gradient(135deg,rgba(255,215,0,0.3),rgba(247,148,29,0.5));">
-          <img src="19.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Вручение наград</div>
+
+      <div class="gitem" data-idx="4">
+        <img src="images/Творим и отдыхаем.jpg" alt="Творим и отдыхаем">
+        <div class="gitem-overlay">
+          <span class="gitem-label">🎉 Творим и отдыхаем</span>
+          <span class="gitem-zoom">Открыть</span>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🥇 Церемония награждения</span></div>
       </div>
-      <div class="gitem">
-        <div class="ph" style="background:linear-gradient(135deg,rgba(0,150,180,0.6),rgba(13,35,64,0.55));">
-          <img src="21.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Экскурсии</div>
+
+      <div class="gitem" data-idx="5">
+        <img src="images/Учимся графическому дизайну.jpg" alt="Учимся графическому дизайну">
+        <div class="gitem-overlay">
+          <span class="gitem-label">🖌️ Учимся графическому дизайну</span>
+          <span class="gitem-zoom">Открыть</span>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🚁 Экскурсии</span></div>
       </div>
-      <div class="gitem">
-        <div class="ph" style="background:linear-gradient(135deg,rgba(123,63,160,0.6),rgba(26,62,255,0.4));">
-          <img src="23.png" class="ph-mascot" alt="">
-          <div class="ph-lbl">Цифровой дизайн</div>
+
+      <div class="gitem" data-idx="6">
+        <img src="images/Путешествуем в виртуальной реальности.jpg" alt="Путешествуем в виртуальной реальности" style="object-position:top center;">
+        <div class="gitem-overlay">
+          <span class="gitem-label">🥽 Путешествуем в виртуальной реальности</span>
+          <span class="gitem-zoom">Открыть</span>
         </div>
-        <div class="gitem-overlay"><span class="gitem-label">🎨 Урок цифрового дизайна</span></div>
       </div>
+
     </div>
 
     <p style="text-align:center;margin-top:28px;color:rgba(255,255,255,0.45);font-size:0.84rem;font-weight:700;position:relative;z-index:1;">
@@ -658,6 +723,18 @@
   </div>
   <img src="191435354.png" class="gallery-mascot-deco" alt="">
 </section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox">
+  <button class="lb-close" id="lb-close">✕</button>
+  <button class="lb-nav lb-prev" id="lb-prev">‹</button>
+  <button class="lb-nav lb-next" id="lb-next">›</button>
+  <div class="lb-inner">
+    <img class="lb-img" id="lb-img" src="" alt="">
+    <div class="lb-caption" id="lb-caption"></div>
+    <div class="lb-counter" id="lb-counter"></div>
+  </div>
+</div>
 
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
@@ -791,7 +868,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
@@ -847,16 +924,58 @@
     }
   } catch (e) {
     alert('Нет соединения. Проверьте интернет и попробуйте снова.');
-    btn.disabled = false;
-    btn.textContent = '🚀 Оставить заявку';
   }
-}
+  }
 
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
-    });
+</script>
+
+<script>
+  // LIGHTBOX
+  const photos = [
+    { src: 'images/Занимаемся техническим конструированием.JPG', caption: '🔧 Занимаемся техническим конструированием' },
+    { src: 'images/Получаем актуальные IT-знания.jpg',           caption: '💻 Получаем актуальные IT-знания' },
+    { src: 'images/Презентация творческих проектов.JPG',         caption: '🎨 Презентация творческих проектов' },
+    { src: 'images/Программируем роботов.JPG',                   caption: '🤖 Программируем роботов' },
+    { src: 'images/Творим и отдыхаем.jpg',                       caption: '🎉 Творим и отдыхаем' },
+    { src: 'images/Учимся графическому дизайну.jpg',             caption: '🖌️ Учимся графическому дизайну' },
+    { src: 'images/Путешествуем в виртуальной реальности.jpg',   caption: '🥽 Путешествуем в виртуальной реальности' },
+  ];
+
+  let current = 0;
+  const lb      = document.getElementById('lightbox');
+  const lbImg   = document.getElementById('lb-img');
+  const lbCap   = document.getElementById('lb-caption');
+  const lbCount = document.getElementById('lb-counter');
+
+  function lbShow(idx) {
+    current = (idx + photos.length) % photos.length;
+    lbImg.src = photos[current].src;
+    lbCap.textContent   = photos[current].caption;
+    lbCount.textContent = (current + 1) + ' / ' + photos.length;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function lbClose() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.gitem').forEach(el => {
+    el.addEventListener('click', () => lbShow(+el.dataset.idx));
+  });
+
+  document.getElementById('lb-close').addEventListener('click', lbClose);
+  document.getElementById('lb-prev').addEventListener('click', () => lbShow(current - 1));
+  document.getElementById('lb-next').addEventListener('click', () => lbShow(current + 1));
+
+  lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('active')) return;
+    if (e.key === 'Escape')     lbClose();
+    if (e.key === 'ArrowLeft')  lbShow(current - 1);
+    if (e.key === 'ArrowRight') lbShow(current + 1);
   });
 </script>
 </body>
